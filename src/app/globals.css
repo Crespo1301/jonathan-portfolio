@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f4f6fb;
+  --foreground: #162033;
+  --muted: #607089;
+  --surface: #ffffff;
+  --surface-strong: #e8eef8;
+  --border: #d4dced;
+  --accent: #2f6ee5;
+  --accent-soft: #dce9ff;
+  --shadow: 0 24px 60px rgba(22, 32, 51, 0.08);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.shell {
+  width: min(1120px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.card-surface {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.muted-copy {
+  color: var(--muted);
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3.35rem);
+  line-height: 1.02;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.copy-balance {
+  max-width: 60ch;
+}
+
+.placeholder-box {
+  border: 1px dashed var(--border);
+  background: var(--surface-strong);
+}
+
+.nav-link {
+  color: var(--muted);
+  transition: color 160ms ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--foreground);
+}
+
+.button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--accent);
+  color: white;
+  padding: 0.9rem 1.25rem;
+  font-weight: 600;
+}
+
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--foreground);
+  padding: 0.9rem 1.25rem;
+  font-weight: 600;
+}
