@@ -1,30 +1,44 @@
-import Link from "next/link";
+"use client";
 
-const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/work", label: "Work" },
-  { href: "/resume", label: "Resume" },
-  { href: "/contact", label: "Contact" },
-];
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { AccentBar } from "@/components/accent-bar";
+import { site } from "@/data/site";
 
 export function SiteHeader() {
+  const pathname = usePathname();
+
   return (
-    <header className="sticky top-0 z-30 border-b border-border bg-background">
-      <div className="shell flex items-center justify-between gap-6 py-4">
-        <Link href="/" className="min-w-0">
-          <div className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">
-            Jonathan Crespo
-          </div>
-          <div className="mt-1 text-sm text-muted">Portfolio starter by CSolutions</div>
-        </Link>
-        <nav className="hidden items-center gap-5 text-sm font-medium md:flex">
-          {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="nav-link">
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+    <header className="sticky top-0 z-30 bg-background">
+      <div className="chrome-rule" />
+      <div className="border-b border-border">
+        <div className="shell flex h-[var(--header-h)] items-center justify-between gap-4">
+          <Link href="/" className="flex items-center gap-2.5">
+            <AccentBar />
+            <span className="text-sm font-semibold uppercase tracking-[0.18em] text-foreground">
+              <span className="sm:hidden">Crespo</span>
+              <span className="hidden sm:inline">Jonathan Crespo</span>
+            </span>
+          </Link>
+          <nav className="flex items-center gap-x-3.5 text-[0.75rem] sm:gap-x-5 sm:text-[0.8rem]">
+            {site.nav.map((item) => {
+              const active =
+                item.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  data-active={active}
+                  className="nav-link whitespace-nowrap"
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
       </div>
     </header>
   );

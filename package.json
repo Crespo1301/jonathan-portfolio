@@ -1,12 +1,12 @@
 {
   "name": "jonathan-portfolio",
-  "version": "0.1.0",
-  "description": "Jonathan Crespo personal portfolio starter for CSolutions.",
+  "version": "1.0.0",
+  "description": "Jonathan Crespo premium automotive paint specialist portfolio, built by CSolutions.",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3003",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3003",
     "lint": "eslint",
     "stitch:init": "npx -y @_davideast/stitch-mcp init",
     "stitch:doctor": "bash ./scripts/stitch-doctor.sh",

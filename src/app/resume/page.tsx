@@ -1,26 +1,37 @@
 import { SectionShell } from "@/components/section-shell";
+import { Wheel } from "@/components/wheel";
+import { site } from "@/data/site";
 
-export default function ResumePage() {
+export default function ExperiencePage() {
   return (
-    <SectionShell
-      eyebrow="Resume and experience"
-      title="Resume, timeline, and skills will land here once Jonathan confirms what should be visible."
-      copy="This route gives us a clean place for a downloadable resume, experience timeline, skill groups, and contact-ready proof points without forcing them into the homepage."
-    >
-      <div className="grid gap-4 md:grid-cols-2">
-        <div className="card-surface rounded-[24px] p-6">
-          <h3 className="text-lg font-semibold">Suggested public items</h3>
-          <p className="mt-3 text-sm leading-6 text-muted">
-            Resume PDF, current role, prior roles, certifications, selected achievements, and a shortlist of tools or strengths.
-          </p>
-        </div>
-        <div className="card-surface rounded-[24px] p-6">
-          <h3 className="text-lg font-semibold">Optional private items</h3>
-          <p className="mt-3 text-sm leading-6 text-muted">
-            Exact dates, employer details, compensation-sensitive metrics, or anything Jonathan wants kept off the public site.
-          </p>
-        </div>
+    <SectionShell index="01" title={site.experience.statement} copy={site.experience.credibility}>
+      <h3 className="h3">What he does</h3>
+      <div className="mt-5 grid grid-cols-1 gap-px border border-border bg-border sm:grid-cols-2">
+        {site.experience.skills.map((skill) => (
+          <div
+            key={skill}
+            className="group flex items-center gap-3 bg-background p-5 text-base text-foreground"
+          >
+            <Wheel className="h-4 w-4" />
+            {skill}
+          </div>
+        ))}
       </div>
+
+      <dl className="mt-10 flex flex-wrap gap-x-12 gap-y-5 border-t border-line-strong pt-6">
+        <div>
+          <dt className="label">Experience</dt>
+          <dd className="mt-1 text-base text-foreground">{site.tenure}</dd>
+        </div>
+        <div>
+          <dt className="label">Based in</dt>
+          <dd className="mt-1 text-base text-foreground">{site.location}</dd>
+        </div>
+        <div>
+          <dt className="label">Focus</dt>
+          <dd className="mt-1 text-base text-foreground">{site.focus}</dd>
+        </div>
+      </dl>
     </SectionShell>
   );
 }

@@ -1,37 +1,80 @@
 # Design Direction
 
-## Current Design Rule
+Jonathan Crespo is an automotive paint specialist in Bellevue, WA, focused on
+European vehicles (10+ years). The site should feel expensive, controlled,
+refined, and highly specialized — the confidence of someone who works on serious
+cars, with restraint rather than hype.
 
-This is a structured starter, not the finished design language.
+## Palette (locked)
 
-The current visual system should:
+Solid colors only. Black, white, and metallic/chrome greys, plus a single
+controlled azure accent used sparingly (restrained strategy, well under 10%
+coverage).
 
-- feel clean and competent
-- read well on mobile and desktop
-- support content intake
-- avoid locking the site into the wrong identity too early
+| Token            | Value     | Use                          |
+| ---------------- | --------- | ---------------------------- |
+| `background`     | `#F4F5F6` | gallery-white canvas         |
+| `surface`        | `#FFFFFF` | panels                       |
+| `surface-strong` | `#ECEDEF` | media slots                  |
+| `silver`         | `#E4E6EA` | light brushed-metal section surface |
+| `foreground`     | `#0B0B0C` | text, primary buttons, inverse band |
+| `steel`          | `#25272B` | dark brushed-graphite section surface |
+| `steel-line`     | `#3A3D44` | hairline on steel            |
+| `muted`          | `#6B7078` | secondary text               |
+| `border`         | `#DCDEE2` | hairline borders / grid lines |
+| `line-strong`    | `#C4C7CD` | secondary-button border, stronger hairlines |
+| `chrome`         | `#9AA0A8` | thin metal accents, wheel marks |
+| `accent`         | `#2353A4` | single azure accent: primary CTAs, active nav underline, focus rings, marquee separator, accent bars |
+| `accent-strong`  | `#1B4083` | accent hover                 |
 
-## Current Placeholder Approach
+### Accent + structural mark
 
-- use clear boxes and labeled content slots where real images or proof will go
-- keep copy honest and obviously provisional
-- make the layout feel intentional, even before the final design pass
+One accent only: a deep **azure** sampled from Jonathan's satin-blue Revuelto,
+the dominant color across his work (chosen by sampling the images, not a brand
+copy). The structural device is a **single solid accent bar** (`AccentBar`
+component, horizontal or vertical) used as the header mark, hero signature,
+section-divider bookmarks, and image edge ribbons. (An earlier stacked tricolor
+"M-stripe" was removed; the staircase read poorly.)
 
-## What To Avoid For Now
+### Car easter eggs
 
-- gradients
-- glass or translucent cards
-- over-specific branding choices
-- fake testimonials
-- invented metrics
-- made-up personal positioning
+A `Wheel` SVG mark replaces plain bullets in skills lists and gallery captions
+and spins on hover. A faint **Mount Rainier** silhouette (`RainierBackdrop`,
+NW-side profile) sits in white sections with a CSS scroll-driven parallax drift.
 
-## Once Jonathan's Brief Arrives
+The metallics are used as real section surfaces (not just lines): a brushed-metal
+value rhythm of white, silver, steel, and near-black down the page.
 
-The final design pass should be based on:
+## System
 
-- his real tone
-- his actual goals
-- his chosen public links
-- his preferred visual references
-- the type of work he wants the site to attract
+- Sharp 0-radius corners everywhere (precision over softness).
+- Hairline borders and `gap-px` grid lines instead of cards-with-shadows.
+- Flat panels — no shadows, no glass, no translucency.
+- Rectangular, uppercase, letter-spaced buttons. Solid black primary; outlined
+  secondary that inverts to black on hover.
+- Home: six full-screen (`100svh`) scroll-snap sections, each a distinct layout
+  family (no repeated skeleton). Desktop scroll-spy rail is ticks-only (no
+  decorative section numbers, per taste-skill). Snap is desktop-only and off
+  under reduced motion.
+- Motion: dependency-free IntersectionObserver reveals (directional + stagger),
+  image hover zoom, CSS marquee. All `prefers-reduced-motion` safe. No JS scroll
+  listeners.
+- Images: `next/image` with `placeholder="blur"` (placeholders in
+  `src/data/blur.ts`). Maps: grayscale-filtered Google embed via `MapEmbed`.
+- Type: tight, slightly negative tracking on headings; `.display` / `.display-xl`
+  for oversized hero/finale moments; generous line-height and `~58ch` body measure.
+
+## Hard Rules (do not break)
+
+- No gradients, glass, translucency, floating orbs, pills/chips.
+- No eyebrow/category labels stacked above section titles. (Uppercase is allowed
+  only for functional UI: nav, field labels, buttons, footer meta, index numbers.)
+- No trendy SaaS / soft-startup styling.
+- Copy: no dual-tone hero text; avoid "not x but y", "no x. no y. no z.", and
+  "x, and that's y" constructions. Write plain, confident, declarative lines.
+
+## Content
+
+All copy flows from `src/data/site.ts` and uses confirmed facts only. Do not
+invent metrics, client names, shop names, or specific vehicles. See HANDOFF.md
+for what is still pending from Jonathan.

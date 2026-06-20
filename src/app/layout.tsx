@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jonathan Crespo | Portfolio",
+  title: "Jonathan Crespo | Automotive Paint Specialist",
   description:
-    "Intake-ready portfolio starter for Jonathan Crespo, built by CSolutions.",
+    "Jonathan Crespo is an automotive paint specialist in Bellevue, Washington, with more than ten years refinishing European vehicles to an exact, lasting finish.",
 };
 
 export default function RootLayout({

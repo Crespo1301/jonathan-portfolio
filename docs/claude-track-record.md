@@ -1,3 +1,173 @@
 # Claude Track Record
 
-No Claude design passes recorded yet.
+## 2026-06-18 — First real design pass (European auto-paint brand)
+
+**Trigger:** Jonathan's real direction landed. He is an automotive paint
+specialist in Bellevue, Washington, with 10+ years refinishing European
+vehicles. Brief called for a slick, restrained, premium feel in the spirit of
+European performance branding — without copying any one marque.
+
+**Direction locked with the user:**
+
+- Light gallery-white base.
+- Monochrome palette: solid black, white, and metallic/chrome greys. No
+  chromatic accent, no tricolor, no literal brand references.
+- Hard visual rules: solid colors only; no gradients, glass, translucency,
+  floating orbs, pills/chips, eyebrow labels above sections, or SaaS polish.
+- Copy rules: no dual-tone hero text; avoid "not x but y", "no x. no y. no z.",
+  and "x, and that's y" constructions.
+
+**What changed:**
+
+- `globals.css` rebuilt as a light monochrome+chrome system: sharp (0-radius)
+  corners, hairline borders, flat panels (no shadows), rectangular uppercase
+  buttons, precision type scale, chrome hairline rule.
+- `src/data/site.ts` rewritten around confirmed facts only. Structure:
+  identity, hero, capabilities, approach, work, about, experience, contact.
+- Header: wordmark + role, chrome top rule, active-state nav (client component).
+- Footer: real location, nav, CSolutions credit, dynamic year.
+- `SectionShell`: dropped eyebrow; spec-sheet layout with structural index
+  numbers (01/02/03), not category kickers.
+- All five pages redesigned. Routes unchanged; `/resume` is now labelled
+  "Experience" to fit a craftsman, not an office resume.
+- Closing CTA band uses a solid near-black inverse section (no gradient).
+
+**Verification:** `npm run lint` clean, `npm run build` green (8/8 static).
+
+**Still pending from Jonathan before public launch (see HANDOFF.md):**
+
+- Confirmation/adjustment of the capability list and work-image captions.
+- Real contact email (placeholder `hello@example.com` in `site.ts`).
+- Fuller personal voice for About, and any timeline/certifications for Experience.
+
+## 2026-06-18 — Imagery pass (same day)
+
+Jonathan's real "JC's work" photo set landed. The cars are exotics and European
+marques — Lamborghini Revuelto (satin blue + white), classic air-cooled Porsche
+911 mid-respray, custom satin finishes, wheel/caliper detail, booth process
+shots. This raised the bar: the brand is a genuine high-end European/exotic
+paint specialist, and copy was updated from "European vehicles" to "European
+cars and exotics."
+
+**What changed:** converted the source HEIC/PNG (libheif lacked HEVC, so used
+`pillow-heif` in a venv) to optimized WebP in `public/images/` (~2.8 MB). Wired
+real images through `next/image`: photo-led home hero, a six-tile work grid, an
+About booth shot (no headshot existed in the set), and a process image in the
+approach block. Added restrained motion — hover zoom on image tiles and a
+`prefers-reduced-motion`-safe scroll reveal — consistent with the brand's
+precision/restraint. Originals and the full 46-image set were not committed.
+
+**Inspiration referenced:** BMW M / Porsche / Ferrari / Tesla configurator comps
+(car-photo-led heroes, big confident type, spec strips with index numbers,
+metallic/grey cars on clean backgrounds) — already matched by the existing
+structure, so imagery slotted in cleanly.
+
+**Verification:** lint clean, build green (8/8), dev server returns 200 on all
+five routes, every image and the `next/image` optimizer resolve.
+
+## 2026-06-18 — Editorial redesign (de-template) + full-screen experience
+
+Client feedback across the session: the site felt sparse, then "like a barebones
+template," and the metallic palette was underused. Reworked into a cinematic,
+photography-led experience. Consulted `impeccable` (context loader + design laws)
+and `taste-skill` (anti-template); both confirmed the template tells, several of
+which were self-inflicted (decorative section-number eyebrows, `border` on every
+list row, repeated hairline-box grids).
+
+**Changes:**
+
+- Expanded the image set to 23 curated WebP (featured-build angles, Porsche
+  respray sequence, white Revuelto, teal Huracan, detail shots).
+- Home rebuilt as six full-screen (`100svh`) scroll-snap sections, each a
+  distinct layout family: oversized split hero, kinetic CSS marquee, image-led
+  featured build, steel/graphite capabilities panel (editorial list, not a card
+  grid), three-step Porsche respray sequence (captioned image row), bento
+  gallery, inverse near-black contact finale with a map.
+- Removed the decorative index-number eyebrows (per taste-skill); section rail is
+  now ticks-only scroll-spy. Reduced hairline-box repetition.
+- Brought the metallic palette in as real surfaces: silver and steel section
+  backgrounds, silver footer, for a brushed-metal value rhythm.
+- Added `placeholder="blur"` skeletal loading (`src/data/blur.ts`), grayscale
+  Google Maps embeds (contact/about/home), and security headers in
+  `next.config.ts` (CSP scoped to the maps embed, HSTS, nosniff, etc.).
+- Motion stays dependency-free (IntersectionObserver + CSS), reduced-motion safe.
+
+**Verification:** lint clean, build green (8/8 static), all routes 200, security
+headers present, image optimizer + maps embed load under CSP. Dev live on `:3003`.
+
+## 2026-06-18 — M-stripe accent system + imagery scale-up
+
+Two client asks: bring blue in as a structural BMW-M-style accent (not just color
+on buttons), and showcase a much larger share of the photography.
+
+- **Accent / M-stripe:** introduced a single controlled red (`#C81E1E`) for CTAs,
+  active nav underline, active scroll-rail tick, focus rings, and marquee
+  separators. Then added an `MStripe` component (BMW-M tricolor: blue/navy/red)
+  used structurally as a header brand mark, a hero signature + panel-seam ribbon,
+  bookmarks straddling each section's top divider, and edge ribbons on featured
+  and gallery images. This is how blue enters the locked palette.
+- **Imagery scale-up:** converted the source set up to 44 WebP (skipped only the
+  pickup truck and one unclear frame), regenerated blur placeholders, and rebuilt
+  the `/work` gallery to showcase 43 images. Added a dedicated Bellevue/experience
+  credibility section to the home (now seven full-screen sections).
+- **Other fixes:** reframed the featured section to read as Jonathan's work rather
+  than a car listing; fixed hover-zoom overflow spilling over the scroll rail
+  (clipped `.zoom`), moved the rail to `xl` with hero right-clearance.
+- Rebuilt the code-review graph via CLI (1216 nodes, 70 files).
+
+**Verification:** lint clean, build green (8/8), all routes 200, 44 images on
+disk, experience section live. Dev on `:3003`.
+
+## 2026-06-18 — Car-DNA pass: custom accent, easter eggs, Rainier, placeholders
+
+Client feedback round focused on identity and craft. Skills consulted again
+(impeccable, taste-skill, ui-ux-pro-max); magic/stitch MCPs were erroring and
+treated as stale per instruction; graph rebuilt via CLI.
+
+- **Removed the home side scroll-rail** (client disliked it); scroll-snap kept
+  via a headless `SnapMode` component.
+- **Recolored off BMW M's exact hues.** The stripe/accent triad is now custom,
+  pulled from Jonathan's satin-blue Revuelto: azure `#1F6FB2`, bronze `#A9772F`,
+  clay red-orange `#C2452A` (clay is the single primary accent). Authentic to his
+  work, not a brand copy.
+- **Pickup truck included** (45 images total) to show he does more than European
+  cars; `/work` gallery now shows 44 with **car-info captions** (make + work).
+- **Car easter eggs:** a `Wheel` SVG mark replaces plain bullets in skills lists
+  and gallery captions and spins on hover; gallery hover reveals a solid info bar.
+- **Mount Rainier silhouette**: a faint fixed backdrop that shows through the
+  transparent sections (hero/gallery/Bellevue) for a parallax PNW nod; plus a
+  Bellevue coordinate detail in the footer.
+- **Placeholders**: a `Placeholder` component marks content-pending slots with
+  ideal dimensions (About headshot 1200x1500) for Jonathan to supply.
+- **Button/link contrast hardened**: `.btn-on-dark` variant, higher-contrast
+  footer links, verbose contact buttons replaced; no white-on-white states.
+
+**Verification:** lint clean, build green (8/8 static), all routes 200, graph
+rebuilt (1217 nodes). Dev on `:3003`. magic/stitch MCPs unavailable this session.
+
+## 2026-06-18 — Refinement round: accent, fit, footer, Rainier
+
+Iterative client feedback, all addressed:
+
+- **Single azure accent.** Removed the stacked tricolor (it read as a staircase).
+  Sampled the car images (dominant color is the satin-blue Revuelto) and set one
+  accent `#2353A4`, expressed as a clean single `AccentBar` (header mark, hero
+  signature, divider bookmarks, image ribbons). Deleted `MStripe`.
+- **Viewport fit.** Sections now size `calc(100svh - var(--header-h))` so each
+  panel fits any screen; reduced section padding and bento height to match.
+- **Header.** Rebuilt as a compact, consistent single-row height driven by
+  `--header-h`, responsive brand ("Crespo" on mobile). No more oversized header.
+- **Footer.** Redesigned: dark brushed-steel, oversized tonal "CRESPO" wordmark,
+  navigation, studio + Bellevue coordinates, accent CTA. (Was generic.)
+- **Mount Rainier.** Redrew the silhouette from the NW-side profile (Liberty Cap
+  shoulder, saddle, Columbia Crest, long concave flanks, smooth curves), scoped
+  to white sections only, with a CSS scroll-driven parallax drift.
+- **Gallery grouping.** `/work` now groups by Lamborghini / Porsche 911 / In the
+  booth / Wheels & details / Beyond European.
+- **Capabilities spacing.** Vertically centered the statement column and added a
+  supporting line so it no longer has dead space below the heading.
+- **Contrast.** Single-azure accent, dark-safe buttons, forced chrome labels on
+  dark surfaces (Tailwind utility lost to plain `.label`, so used `!`).
+
+**Verification:** lint clean, build green (8/8), all routes 200, azure compiled,
+accent bars + parallax + grouped gallery render. Dev on `:3003`.

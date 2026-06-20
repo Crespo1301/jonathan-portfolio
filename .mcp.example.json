@@ -19,6 +19,13 @@
       "args": [
         "./scripts/magic-mcp.sh"
       ]
+    },
+    "shadcn": {
+      "command": "npx",
+      "args": [
+        "shadcn@latest",
+        "mcp"
+      ]
     }
   }
 }

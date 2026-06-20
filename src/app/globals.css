@@ -1,26 +1,37 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f4f6fb;
-  --foreground: #162033;
-  --muted: #607089;
+  --background: #f4f5f6;
   --surface: #ffffff;
-  --surface-strong: #e8eef8;
-  --border: #d4dced;
-  --accent: #2f6ee5;
-  --accent-soft: #dce9ff;
-  --shadow: 0 24px 60px rgba(22, 32, 51, 0.08);
+  --surface-strong: #ececef;
+  --silver: #e4e6ea; /* light brushed metal panel */
+  --foreground: #0b0b0c;
+  --steel: #25272b; /* dark brushed graphite */
+  --steel-line: #3a3d44; /* hairline on steel */
+  --muted: #6b7078;
+  --border: #dcdee2;
+  --line-strong: #c4c7cd;
+  --chrome: #9aa0a8;
+  /* Single accent: deep azure sampled from Jonathan's satin-blue Revuelto, the
+     dominant color across his signature work. */
+  --accent: #2353a4;
+  --accent-strong: #1b4083; /* accent hover */
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
   --color-surface: var(--surface);
   --color-surface-strong: var(--surface-strong);
+  --color-silver: var(--silver);
+  --color-foreground: var(--foreground);
+  --color-steel: var(--steel);
+  --color-steel-line: var(--steel-line);
+  --color-muted: var(--muted);
   --color-border: var(--border);
+  --color-line-strong: var(--line-strong);
+  --color-chrome: var(--chrome);
   --color-accent: var(--accent);
-  --color-accent-soft: var(--accent-soft);
+  --color-accent-strong: var(--accent-strong);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -29,14 +40,41 @@
   box-sizing: border-box;
 }
 
+:root {
+  --header-h: 56px;
+}
+
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: var(--header-h);
+}
+
+/* Full-screen scroll-snap, desktop only, never when reduced motion is set */
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  html[data-snap="true"] {
+    scroll-snap-type: y proximity;
+  }
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
+/* A section sized to exactly one viewport minus the sticky header, so each
+   panel fits the screen on any display (not hardcoded to one size). */
+.screen {
+  min-height: calc(100svh - var(--header-h));
+  display: flex;
+  flex-direction: column;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-feature-settings: "ss01", "cv01";
 }
 
 a {
@@ -44,74 +82,332 @@ a {
   text-decoration: none;
 }
 
+/* Layout container */
 .shell {
-  width: min(1120px, calc(100% - 32px));
+  width: min(1200px, calc(100% - 40px));
   margin-inline: auto;
 }
 
-.card-surface {
+/* Typography */
+.display {
+  font-size: clamp(2.9rem, 7.4vw, 6.5rem);
+  line-height: 0.94;
+  letter-spacing: -0.03em;
+  font-weight: 650;
+}
+
+/* Oversized editorial headline for hero / contact finale */
+.display-xl {
+  font-size: clamp(3.4rem, 10vw, 8.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+  font-weight: 680;
+}
+
+.h2 {
+  font-size: clamp(1.8rem, 3.6vw, 2.85rem);
+  line-height: 1.04;
+  letter-spacing: -0.018em;
+  font-weight: 600;
+}
+
+.h3 {
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+.lead {
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.measure {
+  max-width: 58ch;
+}
+
+/* Functional label (UI/meta only, never an eyebrow above a heading) */
+.label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.index {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--chrome);
+}
+
+/* Surfaces — flat, hairline borders, no shadow, sharp corners */
+.panel {
   background: var(--surface);
   border: 1px solid var(--border);
-  box-shadow: var(--shadow);
 }
 
-.eyebrow {
-  color: var(--accent);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.muted-copy {
-  color: var(--muted);
-}
-
-.section-title {
-  font-size: clamp(2rem, 4vw, 3.35rem);
-  line-height: 1.02;
-  font-weight: 700;
-  letter-spacing: 0;
-}
-
-.copy-balance {
-  max-width: 60ch;
-}
-
-.placeholder-box {
-  border: 1px dashed var(--border);
+.panel-strong {
   background: var(--surface-strong);
+  border: 1px solid var(--border);
 }
 
+/* Image / media slot — solid fill, no dashes, no translucency */
+.media {
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+}
+
+/* Chrome hairline accent */
+.chrome-rule {
+  height: 1px;
+  background: var(--chrome);
+}
+
+/* Buttons — rectangular, solid, sharp */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  padding-inline: 1.5rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: var(--accent-strong);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--foreground);
+  border-color: var(--line-strong);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  background: var(--foreground);
+  color: var(--background);
+  border-color: var(--foreground);
+}
+
+/* Outlined button safe on dark sections (always-visible light text) */
+.btn-on-dark {
+  background: transparent;
+  color: var(--background);
+  border-color: var(--chrome);
+}
+
+.btn-on-dark:hover,
+.btn-on-dark:focus-visible {
+  background: var(--background);
+  color: var(--foreground);
+  border-color: var(--background);
+}
+
+/* Nav */
 .nav-link {
+  position: relative;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
   color: var(--muted);
-  transition: color 160ms ease;
+  transition: color 150ms ease;
 }
 
 .nav-link:hover,
-.nav-link:focus-visible {
+.nav-link:focus-visible,
+.nav-link[data-active="true"] {
   color: var(--foreground);
 }
 
-.button-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
+.nav-link[data-active="true"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
   background: var(--accent);
-  color: white;
-  padding: 0.9rem 1.25rem;
-  font-weight: 600;
 }
 
-.button-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Image framing — covers a fixed ratio, no rounding */
+.frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-strong);
   border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--foreground);
-  padding: 0.9rem 1.25rem;
+}
+
+.frame img {
+  object-fit: cover;
+}
+
+/* Restrained motion — hover zoom + scroll reveal, reduced-motion safe */
+/* Clip the hover-zoom so the scaled image never spills over neighbors or the
+   fixed section rail. */
+.zoom {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .zoom img {
+    transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+  }
+
+  .zoom:hover img {
+    transform: scale(1.04);
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+      opacity 800ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal[data-dir="left"] {
+    transform: translateX(-28px);
+  }
+
+  .reveal[data-dir="right"] {
+    transform: translateX(28px);
+  }
+
+  .reveal[data-dir="none"] {
+    transform: none;
+  }
+
+  .reveal[data-shown="true"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Mount Rainier backdrop: scroll-driven parallax drift. Pure CSS view-timeline,
+   gracefully static where unsupported, disabled under reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .rainier-parallax {
+      animation: rainier-drift linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+      will-change: transform;
+    }
+  }
+}
+
+@keyframes rainier-drift {
+  from {
+    transform: translateY(14%);
+  }
+  to {
+    transform: translateY(-16%);
+  }
+}
+
+/* Wheel mark (car easter egg). Spins on hover of a parent .group. */
+.wheel {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  color: var(--chrome);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .wheel {
+    transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .group:hover .wheel {
+    transform: rotate(180deg);
+  }
+}
+
+/* Accent bar: a single solid stroke used as a brand mark, signature, and
+   section-divider bookmark (replaces the old stacked tricolor). */
+.accent-bar {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 0.28rem;
+  background: var(--accent);
+  pointer-events: none;
+}
+
+.accent-bar-v {
+  width: 0.28rem;
+  height: 2.5rem;
+}
+
+/* Kinetic marquee */
+.marquee {
+  overflow: hidden;
+  border-block: 1px solid var(--steel-line);
+  background: var(--steel);
+  color: var(--background);
+}
+
+.marquee-inner {
+  display: flex;
+  width: max-content;
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding-block: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .marquee-track {
+    animation: marquee-scroll 32s linear infinite;
+  }
+}
+
+@keyframes marquee-scroll {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* Map embed: monochrome to match the palette */
+.map-frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.map-frame iframe {
+  border: 0;
+  filter: grayscale(1) contrast(0.92) brightness(1.03);
 }
