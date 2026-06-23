@@ -44,11 +44,11 @@ depth. This supersedes the earlier monochrome-restraint rules:
 - **Second accent: bronze-gold** (`--gold #b9863c`), sampled from the Revuelto's
   wheels. Pairs warm/cool with the azure. Used on index numbers, the `Wheel`
   marks, and social hovers. Azure stays the primary action color.
-- **Depth and 3D are allowed:** soft shadows (`--shadow-card`, `--shadow-lift`),
-  hover lift (`.lift`), glossy primary buttons, and an azure radial **glow** on
-  dark sections (`.glow-steel`, `.glow-black`). Use tastefully, not everywhere.
-- **Gradients are allowed** for highlights/depth (buttons, glows). Keep them
-  subtle; no rainbow or trendy SaaS gradients.
+- **Depth and 3D via solid shadows only:** soft shadows (`--shadow-card`,
+  `--shadow-lift`) and hover lift (`.lift`). Buttons get a flat drop shadow.
+  Use tastefully, not everywhere.
+- **No gradients anywhere** (client rule). No glossy button sheens, no glow
+  backgrounds. Depth comes from solid shadows and the gold/azure accents only.
 
 ### Car easter eggs
 
