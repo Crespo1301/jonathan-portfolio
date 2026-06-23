@@ -65,14 +65,14 @@ zip and re-run the blur generator to refresh `src/data/blur.ts`.
 
 ## Pending From Jonathan Before Public Launch
 
-1. **Real contact email** — `site.contact.email` is `hello@example.com`.
+1. **Real contact email**, `site.contact.email` is `hello@example.com`.
 2. **Confirm captions, model names, and publishing rights** for the work photos;
    confirm/adjust the `capabilities` and `featured` build attributes.
-3. **About voice + Experience detail** — currently confirmed facts only; add his
+3. **About voice + Experience detail**, currently confirmed facts only; add his
    fuller story, timeline, or certifications when provided.
-4. **Map precision** — embed is centered on "Bellevue, WA"; swap to a precise
+4. **Map precision**, embed is centered on "Bellevue, WA"; swap to a precise
    address/pin once the shop location is public (if desired).
-5. **Headshot** — none existed in the set; About uses a booth shot.
+5. **Headshot**, none existed in the set; About uses a booth shot.
 
 ## Weak Spots To Review
 

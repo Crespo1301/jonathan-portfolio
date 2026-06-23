@@ -12,10 +12,18 @@
   --border: #dcdee2;
   --line-strong: #c4c7cd;
   --chrome: #9aa0a8;
-  /* Single accent: deep azure sampled from Jonathan's satin-blue Revuelto, the
-     dominant color across his signature work. */
+  /* Azure accent sampled from Jonathan's satin-blue Revuelto. */
   --accent: #2353a4;
   --accent-strong: #1b4083; /* accent hover */
+  --accent-bright: #3a74cf; /* lighter azure for highlights on dark */
+  --accent-glow: rgba(35, 83, 164, 0.32);
+  /* Bronze-gold second accent, sampled from his Revuelto's wheels, pairs with
+     the azure for a warm/cool premium contrast. */
+  --gold: #b9863c;
+  --gold-strong: #9a6e2e;
+  /* Depth tokens (3D elevation). */
+  --shadow-card: 0 1px 2px rgba(11, 11, 12, 0.05), 0 14px 30px -16px rgba(11, 11, 12, 0.22);
+  --shadow-lift: 0 2px 6px rgba(11, 11, 12, 0.08), 0 30px 60px -20px rgba(11, 11, 12, 0.34);
 }
 
 @theme inline {
@@ -32,6 +40,9 @@
   --color-chrome: var(--chrome);
   --color-accent: var(--accent);
   --color-accent-strong: var(--accent-strong);
+  --color-accent-bright: var(--accent-bright);
+  --color-gold: var(--gold);
+  --color-gold-strong: var(--gold-strong);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -142,10 +153,10 @@ a {
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.14em;
-  color: var(--chrome);
+  color: var(--gold);
 }
 
-/* Surfaces — flat, hairline borders, no shadow, sharp corners */
+/* Surfaces, flat, hairline borders, no shadow, sharp corners */
 .panel {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -156,7 +167,7 @@ a {
   border: 1px solid var(--border);
 }
 
-/* Image / media slot — solid fill, no dashes, no translucency */
+/* Image / media slot, solid fill, no dashes, no translucency */
 .media {
   background: var(--surface-strong);
   border: 1px solid var(--border);
@@ -171,7 +182,7 @@ a {
   background: var(--chrome);
 }
 
-/* Buttons — rectangular, solid, sharp */
+/* Buttons, rectangular, solid, sharp */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -183,17 +194,27 @@ a {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   border: 1px solid transparent;
-  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease,
+    box-shadow 200ms ease, transform 200ms ease;
 }
 
 .btn-primary {
-  background: var(--accent);
+  background: linear-gradient(180deg, var(--accent-bright) 0%, var(--accent) 52%, var(--accent-strong) 100%);
   color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 10px 22px -12px rgba(35, 83, 164, 0.75);
 }
 
 .btn-primary:hover,
 .btn-primary:focus-visible {
-  background: var(--accent-strong);
+  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-strong) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 16px 32px -12px rgba(35, 83, 164, 0.92);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .btn-primary:hover,
+  .btn-primary:focus-visible {
+    transform: translateY(-1px);
+  }
 }
 
 .btn-secondary {
@@ -255,7 +276,7 @@ a {
 }
 
 
-/* Image framing — covers a fixed ratio, no rounding */
+/* Image framing, covers a fixed ratio, no rounding */
 .frame {
   position: relative;
   overflow: hidden;
@@ -267,7 +288,49 @@ a {
   object-fit: cover;
 }
 
-/* Restrained motion — hover zoom + scroll reveal, reduced-motion safe */
+/* === Premium depth, color & highlights === */
+
+/* Elevated media, soft shadow by default */
+.frame {
+  box-shadow: var(--shadow-card);
+}
+
+/* Hover lift for media / cards */
+.lift {
+  box-shadow: var(--shadow-card);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .lift {
+    transition: transform 340ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 340ms ease;
+    will-change: transform;
+  }
+
+  .lift:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lift);
+  }
+}
+
+/* Azure-glow dark surfaces (use in place of bg-steel / bg-foreground) */
+.glow-steel {
+  background-color: var(--steel);
+  background-image: radial-gradient(75% 90% at 12% -12%, var(--accent-glow), transparent 58%);
+}
+
+.glow-black {
+  background-color: var(--foreground);
+  background-image: radial-gradient(85% 100% at 85% -12%, var(--accent-glow), transparent 60%);
+}
+
+/* Card surface with depth on light sections */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+}
+
+/* Restrained motion, hover zoom + scroll reveal, reduced-motion safe */
 /* Clip the hover-zoom so the scaled image never spills over neighbors or the
    fixed section rail. */
 .zoom {
@@ -337,7 +400,7 @@ a {
   width: 1rem;
   height: 1rem;
   flex-shrink: 0;
-  color: var(--chrome);
+  color: var(--gold);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -367,7 +430,7 @@ a {
 
 /* Cinematic "sheet-pull" unveil: a solid panel that covers an image, then
    slides off as the image scrolls into view (Rolls-Royce reveal, translated to
-   the locked system — solid color, no gradient/scrim). JS-driven via data-shown.
+   the locked system, solid color, no gradient/scrim). JS-driven via data-shown.
    Default (no JS / reduced motion) leaves the cover out of frame so the image
    is always visible. */
 .unveil {
@@ -438,5 +501,4 @@ a {
 
 .map-frame iframe {
   border: 0;
-  filter: grayscale(1) contrast(0.92) brightness(1.03);
 }

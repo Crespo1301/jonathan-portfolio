@@ -1,42 +1,93 @@
-import { SectionShell } from "@/components/section-shell";
 import { MapEmbed } from "@/components/map-embed";
+import { ContactForm } from "@/components/contact-form";
+import { QuickActions } from "@/components/quick-actions";
+import { Socials } from "@/components/socials";
+import { AccentBar } from "@/components/accent-bar";
 import { site } from "@/data/site";
+
+const tel = site.contact.phone.replace(/[^+\d]/g, "");
 
 export default function ContactPage() {
   return (
     <>
-      <SectionShell index="01" title={site.contact.title} copy={site.contact.copy}>
-        <dl className="flex flex-wrap gap-x-12 gap-y-6 border-t border-line-strong pt-8">
-          <div>
-            <dt className="label">Email</dt>
-            <dd className="mt-2">
-              <a
-                href={`mailto:${site.contact.email}`}
-                className="text-lg text-foreground underline-offset-4 hover:underline"
-              >
-                {site.contact.email}
-              </a>
-            </dd>
-          </div>
-          <div>
-            <dt className="label">Location</dt>
-            <dd className="mt-2 text-lg text-foreground">{site.contact.location}</dd>
-          </div>
-          <div>
-            <dt className="label">Service area</dt>
-            <dd className="mt-2 text-lg text-foreground">Greater Seattle</dd>
-          </div>
-        </dl>
+      {/* Intro + form / details */}
+      <section className="border-t border-border">
+        <div className="shell py-16 sm:py-24">
+          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+            <div>
+              <AccentBar className="mb-7" />
+              <h1 className="display">{site.contact.title}</h1>
+              <p className="lead measure mt-6">{site.contact.copy}</p>
+              <div className="mt-10">
+                <ContactForm />
+              </div>
+            </div>
 
-        <a href={`mailto:${site.contact.email}`} className="btn btn-primary mt-10">
-          Email Jonathan
-        </a>
+            <aside className="lg:border-l lg:border-border lg:pl-12">
+              <p className="label">Reach Jonathan directly</p>
+              <div className="mt-5">
+                <QuickActions />
+              </div>
 
-        <div className="mt-14">
-          <MapEmbed className="aspect-[16/9] w-full" zoom={11} />
-          <p className="mt-3 text-sm text-muted">{site.contact.note}</p>
+              <dl className="mt-10 space-y-6 border-t border-border pt-8">
+                <div>
+                  <dt className="label">Email</dt>
+                  <dd className="mt-2">
+                    <a
+                      href={`mailto:${site.contact.email}`}
+                      className="text-lg text-foreground underline-offset-4 transition-colors hover:text-accent"
+                    >
+                      {site.contact.email}
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="label">Phone</dt>
+                  <dd className="mt-2">
+                    <a
+                      href={`tel:${tel}`}
+                      className="text-lg text-foreground underline-offset-4 transition-colors hover:text-accent"
+                    >
+                      {site.contact.phone}
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="label">Location</dt>
+                  <dd className="mt-2 text-lg text-foreground">{site.contact.location}</dd>
+                </div>
+                <div>
+                  <dt className="label">Service area</dt>
+                  <dd className="mt-2 text-lg text-foreground">Greater Seattle</dd>
+                </div>
+              </dl>
+
+              <div className="mt-10 border-t border-border pt-8">
+                <p className="label">Follow the work</p>
+                <div className="mt-4">
+                  <Socials />
+                </div>
+              </div>
+            </aside>
+          </div>
         </div>
-      </SectionShell>
+      </section>
+
+      {/* Map */}
+      <section className="border-t border-border bg-silver">
+        <div className="shell py-16 sm:py-20">
+          <div className="flex items-baseline gap-4">
+            <span className="index">02</span>
+            <div>
+              <h2 className="h2">Based in Bellevue.</h2>
+              <p className="lead mt-4 max-w-md">{site.contact.note}</p>
+            </div>
+          </div>
+          <div className="mt-10">
+            <MapEmbed className="aspect-[16/9] w-full lift" zoom={11} />
+          </div>
+        </div>
+      </section>
     </>
   );
 }

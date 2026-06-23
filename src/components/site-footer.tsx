@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { AccentBar } from "@/components/accent-bar";
+import { Socials } from "@/components/socials";
 import { site } from "@/data/site";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-hidden border-t border-border bg-steel text-background">
+    <footer className="glow-steel relative overflow-hidden border-t border-border text-background">
       <AccentBar className="absolute left-6 top-0 z-10 -translate-y-1/2 sm:left-10" />
       <div className="shell py-16 sm:py-20">
         <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr]">
@@ -24,6 +25,9 @@ export function SiteFooter() {
             >
               Email Jonathan
             </a>
+            <div className="mt-8">
+              <Socials variant="dark" />
+            </div>
           </div>
 
           {/* Navigate */}

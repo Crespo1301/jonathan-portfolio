@@ -34,29 +34,29 @@ export const site = {
     supporting:
       "Automotive paint specialist in Bellevue, Washington. More than ten years refinishing European cars and exotics to an exact, lasting finish.",
     image: {
-      src: "/images/hero.webp",
-      alt: "Satin-blue Lamborghini Revuelto with bronze wheels, refinished by Jonathan Crespo.",
+      src: "/images/revuelto-detail.webp",
+      alt: "Close detail of a satin-blue Lamborghini Revuelto, bronze wheel and refinished paint by Jonathan Crespo.",
     },
     primaryCta: { label: "View work", href: "/work" },
     secondaryCta: { label: "Get in touch", href: "/contact" },
   },
 
   featured: {
-    title: "Satin blue, carried across every panel.",
+    title: "A classic 911, brought back in deep red.",
     summary:
-      "A Lamborghini Revuelto refinished and detailed start to finish. The color holds evenly from nose to tail, the bronze wheels redone, the center stripe matched by hand.",
+      "An air-cooled Porsche 911 refinished panel by panel. Color was laid wet in the booth, then cut, polished, and reassembled to a deep, even gloss that suits the car.",
     attributes: [
-      { label: "Work", value: "Full refinish & detail" },
-      { label: "Finish", value: "Satin blue" },
-      { label: "Wheels", value: "Refinished bronze" },
+      { label: "Work", value: "Full respray" },
+      { label: "Finish", value: "Gloss red" },
+      { label: "Car", value: "Classic 911" },
     ],
     lead: {
-      src: "/images/revuelto-detail.webp",
-      alt: "Close detail of the satin-blue Lamborghini Revuelto front fender and bronze wheel.",
+      src: "/images/porsche-fender.webp",
+      alt: "Freshly painted glossy red Porsche 911 fender drying in the spray booth.",
     },
     thumbs: [
-      { src: "/images/revuelto-rear.webp", alt: "Rear three-quarter of the satin-blue Revuelto." },
-      { src: "/images/revuelto-side.webp", alt: "Front three-quarter of the satin-blue Revuelto." },
+      { src: "/images/porsche-red-side.webp", alt: "Classic red Porsche 911 front in the shop." },
+      { src: "/images/porsche-red-front.webp", alt: "Classic red Porsche 911 front." },
     ],
   },
 
@@ -123,9 +123,14 @@ export const site = {
     credibility:
       "A decade refinishing high-end European cars and exotics in Bellevue, Washington. The standard is set by the cars that come through the door, and it holds on every one.",
     image: {
-      src: "/images/porsche-red-side.webp",
-      alt: "Classic Porsche 911 refinished in deep gloss red by Jonathan Crespo.",
+      src: "/images/huracan-rear.webp",
+      alt: "Teal Lamborghini Huracán refinished by Jonathan Crespo, rear three-quarter in the shop.",
     },
+    // Longer narrative for the Experience (/resume) page. Confirmed facts only.
+    narrative: [
+      "Jonathan Crespo has spent more than ten years refinishing automobiles in Bellevue, Washington, with a focus on European cars and exotics. The work runs from single-panel repairs to full resprays, custom finishes, color matching, and finish correction.",
+      "The approach is the same on every car: surfaces prepared with care, color matched precisely, and the finish checked under proper light before it leaves the booth. The result is paintwork that looks right the day it is delivered and holds up over the years that follow.",
+    ],
     skills: [
       "Color matching & custom mixing",
       "Surface preparation & correction",
@@ -133,6 +138,30 @@ export const site = {
       "Clear-coat & finish work",
       "Panel & collision refinishing",
       "Detailing & final inspection",
+    ],
+    // What comes through the booth, categories supported by his actual work.
+    specialties: [
+      "European cars & exotics",
+      "Classic & vintage refinishing",
+      "Custom & satin finishes",
+      "Full resprays & panel repair",
+      "Wheels, calipers & detail work",
+    ],
+  },
+
+  // Professional refinish systems & materials. Jonathan works with WESCO, the
+  // regional paint, body & equipment supplier. (Confirm exact paint brand /
+  // certifications with Jonathan before adding specific product names, see
+  // HANDOFF.md.)
+  materials: {
+    title: "Professional systems and materials.",
+    copy:
+      "Jonathan works with professional automotive refinish systems and supplies through WESCO, the western North America paint, body and equipment supplier trusted by collision and finishing shops across the region. The right materials, applied in controlled conditions, are what make a finish last.",
+    points: [
+      "Professional-grade refinish paint systems",
+      "Primers, sealers, clear-coats and abrasives",
+      "Factory color identification and custom mixing",
+      "Booth-controlled application and curing",
     ],
   },
 
@@ -208,9 +237,20 @@ export const site = {
     title: "Start a conversation.",
     copy: "Tell Jonathan about the car and the finish you have in mind. Quotes and timing are handled directly.",
     location: "Bellevue, Washington",
-    email: "hello@example.com", // PENDING: replace with Jonathan's real email before launch
+    // PENDING, replace with Jonathan's real details before launch (see HANDOFF.md).
+    email: "hello@example.com",
+    phone: "+1 (425) 555-0142", // PENDING real number; used for call + text buttons
     note: "Serving Bellevue and the greater Seattle area.",
   },
+
+  // Social links. PLACEHOLDERS, easy to find-and-replace. Swap each `url` for
+  // Jonathan's real profile (and update `handle`). Remove any he doesn't use.
+  socials: [
+    { label: "Instagram", handle: "@REPLACE_ME", url: "https://instagram.com/REPLACE_ME" },
+    { label: "Facebook", handle: "Jonathan Crespo", url: "https://facebook.com/REPLACE_ME" },
+    { label: "TikTok", handle: "@REPLACE_ME", url: "https://tiktok.com/@REPLACE_ME" },
+    { label: "YouTube", handle: "Jonathan Crespo", url: "https://youtube.com/@REPLACE_ME" },
+  ],
 };
 
 export type SiteData = typeof site;

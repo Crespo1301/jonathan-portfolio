@@ -2,7 +2,7 @@
 
 Jonathan Crespo is an automotive paint specialist in Bellevue, WA, focused on
 European vehicles (10+ years). The site should feel expensive, controlled,
-refined, and highly specialized — the confidence of someone who works on serious
+refined, and highly specialized, the confidence of someone who works on serious
 cars, with restraint rather than hype.
 
 ## Palette (locked)
@@ -36,20 +36,35 @@ component, horizontal or vertical) used as the header mark, hero signature,
 section-divider bookmarks, and image edge ribbons. (An earlier stacked tricolor
 "M-stripe" was removed; the staircase read poorly.)
 
+### Premium direction (updated 2026-06-22)
+
+The client asked for a richer, more premium feel: less flat gray, real color, and
+depth. This supersedes the earlier monochrome-restraint rules:
+
+- **Second accent: bronze-gold** (`--gold #b9863c`), sampled from the Revuelto's
+  wheels. Pairs warm/cool with the azure. Used on index numbers, the `Wheel`
+  marks, and social hovers. Azure stays the primary action color.
+- **Depth and 3D are allowed:** soft shadows (`--shadow-card`, `--shadow-lift`),
+  hover lift (`.lift`), glossy primary buttons, and an azure radial **glow** on
+  dark sections (`.glow-steel`, `.glow-black`). Use tastefully, not everywhere.
+- **Gradients are allowed** for highlights/depth (buttons, glows). Keep them
+  subtle; no rainbow or trendy SaaS gradients.
+
 ### Car easter eggs
 
-A `Wheel` SVG mark replaces plain bullets in skills lists and gallery captions
-and spins on hover. A faint **Mount Rainier** silhouette (`RainierBackdrop`,
-NW-side profile) sits in white sections with a CSS scroll-driven parallax drift.
+A `Wheel` SVG mark (now gold) replaces plain bullets in skills lists and gallery
+captions and spins on hover. A faint **downtown Bellevue skyline** silhouette
+(`SkylineBackdrop`, with a faint Rainier dome behind) sits in white sections with
+a CSS scroll-driven parallax drift.
 
-The metallics are used as real section surfaces (not just lines): a brushed-metal
-value rhythm of white, silver, steel, and near-black down the page.
+The metallics are used as real section surfaces (not just lines): a value rhythm
+of white, silver, steel, and near-black down the page.
 
 ## System
 
 - Sharp 0-radius corners everywhere (precision over softness).
 - Hairline borders and `gap-px` grid lines instead of cards-with-shadows.
-- Flat panels — no shadows, no glass, no translucency.
+- Flat panels, no shadows, no glass, no translucency.
 - Rectangular, uppercase, letter-spaced buttons. Solid black primary; outlined
   secondary that inverts to black on hover.
 - Home: six full-screen (`100svh`) scroll-snap sections, each a distinct layout
@@ -66,12 +81,15 @@ value rhythm of white, silver, steel, and near-black down the page.
 
 ## Hard Rules (do not break)
 
-- No gradients, glass, translucency, floating orbs, pills/chips.
+- No floating orbs or pills/chips. Subtle gradients, shadows, and depth are now
+  allowed (see Premium direction) but keep them controlled and purposeful.
 - No eyebrow/category labels stacked above section titles. (Uppercase is allowed
   only for functional UI: nav, field labels, buttons, footer meta, index numbers.)
 - No trendy SaaS / soft-startup styling.
 - Copy: no dual-tone hero text; avoid "not x but y", "no x. no y. no z.", and
   "x, and that's y" constructions. Write plain, confident, declarative lines.
+- **Never use em dashes (the long U+2014 dash) anywhere** (copy, comments, or
+  docs). Use a period, comma, or rewrite. (See `docs/MASTER_RULES.md`.)
 
 ## Content
 

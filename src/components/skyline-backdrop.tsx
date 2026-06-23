@@ -16,19 +16,19 @@ export function SkylineBackdrop({ className }: SkylineBackdropProps) {
       <svg
         viewBox="0 0 1600 440"
         preserveAspectRatio="xMidYMax slice"
-        className="h-[40vh] w-full"
+        className="h-[32vh] w-full"
         fill="none"
       >
         {/* Mount Rainier dome, far behind and very faint */}
         <path
           className="text-chrome"
           fill="currentColor"
-          opacity="0.08"
+          opacity="0.05"
           d="M0,440 L0,360 C260,352 470,300 690,236 C760,214 786,206 800,206 C814,206 842,216 912,238 C1130,304 1340,356 1600,366 L1600,440 Z"
         />
 
         {/* Skyline of towers */}
-        <g className="text-chrome" fill="currentColor" opacity="0.18">
+        <g className="text-chrome" fill="currentColor" opacity="0.09">
           <rect x="40" y="300" width="78" height="140" />
           <rect x="128" y="248" width="64" height="192" />
           <rect x="202" y="288" width="52" height="152" />
@@ -61,7 +61,7 @@ export function SkylineBackdrop({ className }: SkylineBackdropProps) {
         <path
           className="text-chrome"
           fill="currentColor"
-          opacity="0.12"
+          opacity="0.07"
           d="M0,440 L0,406 C90,398 150,388 210,392 C250,394 270,384 320,384 C360,384 380,394 430,392 C500,389 540,378 600,382 C660,386 690,396 760,394 C840,392 880,380 950,384 C1030,388 1070,398 1150,394 C1240,390 1300,380 1380,384 C1460,388 1520,398 1600,402 L1600,440 Z"
         />
       </svg>

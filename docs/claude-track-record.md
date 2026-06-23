@@ -1,6 +1,41 @@
 # Claude Track Record
 
-## 2026-06-22 — Feedback round: header, marquee, skyline, footer, focus
+## 2026-06-22 , Premium-color direction + outreach + content passes
+
+Large client-driven round (Carlos, live on the Vercel preview):
+
+- **New design direction: less gray, more premium.** Added a bronze-gold second
+  accent (sampled from the Revuelto wheels), depth tokens + `.lift` hover,
+  glossy gradient primary buttons, and an azure radial glow on dark sections
+  (`.glow-steel`/`.glow-black`, applied to capabilities, contact, discover,
+  footer, resume panels). Gold now colors the index numbers and `Wheel` marks.
+  Updated `DESIGN.md` to supersede the old no-gradient/no-shadow rules.
+- **Hero:** worked through image quality. `white-profile` was 983x562 (too soft
+  full-bleed). His only high-res, premium photography is the blue Revuelto, so
+  per his OK the hero is now the satin-blue Revuelto *detail* macro, and the
+  featured section was switched to the red Porsche 911 so the next section is a
+  different car. Experience image moved to the teal Huracan for spread.
+- **Resume (/resume):** rebuilt from 5 identical SectionShells into distinct
+  layout families on alternating surfaces (white/silver/steel/black), with a
+  WESCO-informed "Materials & systems" panel.
+- **Work (/work):** kept the car grouping but gave each group its own band with
+  alternating surfaces, gold index, a featured first tile, and alternating
+  column counts, so it stops feeling like one repeated grid.
+- **Outreach:** new `ContactForm` (mailto, no backend yet), `QuickActions`
+  (call/text/email via tel/sms/mailto), and `Socials` (placeholder links, easy
+  to replace). Wired into /contact (rebuilt), the home contact section, and the
+  footer. Added `phone` + `socials` placeholders to `site.ts`.
+- **Maps now colored** (removed the grayscale filter). **Skyline** opacity
+  lowered so text reads over it. **Home experience** section slimmed + heading
+  downsized so each snap section fits one viewport.
+- **Writing rule:** removed all em dashes site-wide and banned them in
+  `MASTER_RULES.md` + `DESIGN.md`.
+
+**Still pending from Jonathan:** real email/phone, social handles, hi-res photos
++ a headshot, and confirmation of the WESCO/brand specifics. **Verification:**
+lint clean, build green (6 routes), zero em dashes.
+
+## 2026-06-22, Feedback round: header, marquee, skyline, footer, focus
 
 Same-day client feedback:
 
@@ -8,7 +43,7 @@ Same-day client feedback:
   Reverted to a refined visible inline nav (wordmark left, links right, active
   underline). Header z-index back to 30.
 - **Side scroller removed.** Deleted the kinetic marquee strip under the hero
-  (component, usage, and CSS) — it read as too busy.
+  (component, usage, and CSS), it read as too busy.
 - **Bellevue skyline backdrop.** Replaced the Mount Rainier silhouette with a
   downtown Bellevue skyline (`SkylineBackdrop`): varied towers + tall center
   spire, low treeline, and a faint Rainier dome behind for the PNW nod. Kept the
@@ -19,10 +54,10 @@ Same-day client feedback:
 - **De-emphasize the blue Lambo.** Client wants the focus on Jonathan, not one
   car. Swapped the experience image off the satin-blue Revuelto to the classic
   red Porsche 911 (range contrast). Blue hero kept per his choice.
-- **Experience expanded.** Felt short — added a spec strip (experience / focus /
+- **Experience expanded.** Felt short, added a spec strip (experience / focus /
   based-in) and a labeled "Capabilities" group above the skills, layered over the
   oversized "10". All from confirmed facts only.
-- **Intake email drafted** at `docs/outreach/jonathan-intake-email.md` — numbered
+- **Intake email drafted** at `docs/outreach/jonathan-intake-email.md`, numbered
   questions to gather his story, work, photos, real contact info, and the
   direction he wants; includes the Vercel preview link for review.
 
@@ -30,12 +65,12 @@ Same-day client feedback:
   fills the viewport edge-to-edge with a solid near-black signature bar anchored
   at the bottom: AccentBar + "Jonathan Crespo" + role/location, the headline, a
   short supporting line, and the two CTAs (`btn-on-dark` for the secondary).
-  No scrim/gradient — solid bar per the locked rules. Skyline dropped from the
+  No scrim/gradient, solid bar per the locked rules. Skyline dropped from the
   hero (a full-bleed image hides it); it stays in the experience section.
 
 **Verification:** lint clean, build green (8/8), no stale refs.
 
-## 2026-06-22 — Luxury-brand cues (Rolls-Royce + West Coast Customs)
+## 2026-06-22, Luxury-brand cues (Rolls-Royce + West Coast Customs)
 
 Carlos brought reference screenshots of the Rolls-Royce and West Coast Customs
 sites and asked to replicate high-end elements in our style. Since Jonathan is a
@@ -56,7 +91,7 @@ safe) rather than copying them:
   white → graphite → black into the contact finale. New
   `src/components/discover-strip.tsx` + `discover` data in `site.ts`.
 - **Oversized "10" statement** (West Coast Customs "32 YEARS"): a giant tonal
-  silver numeral behind the Experience copy — Jonathan's confirmed decade at WCC
+  silver numeral behind the Experience copy, Jonathan's confirmed decade at WCC
   scale, kept monochrome and as a watermark so the heading stays full-contrast.
   `.stat-numeral` CSS.
 
@@ -67,12 +102,12 @@ hard rules untouched.
 route 200 with all three elements present in served HTML. Push/versioning left to
 Codex per the role split.
 
-## 2026-06-18 — First real design pass (European auto-paint brand)
+## 2026-06-18, First real design pass (European auto-paint brand)
 
 **Trigger:** Jonathan's real direction landed. He is an automotive paint
 specialist in Bellevue, Washington, with 10+ years refinishing European
 vehicles. Brief called for a slick, restrained, premium feel in the spirit of
-European performance branding — without copying any one marque.
+European performance branding, without copying any one marque.
 
 **Direction locked with the user:**
 
@@ -107,10 +142,10 @@ European performance branding — without copying any one marque.
 - Real contact email (placeholder `hello@example.com` in `site.ts`).
 - Fuller personal voice for About, and any timeline/certifications for Experience.
 
-## 2026-06-18 — Imagery pass (same day)
+## 2026-06-18, Imagery pass (same day)
 
 Jonathan's real "JC's work" photo set landed. The cars are exotics and European
-marques — Lamborghini Revuelto (satin blue + white), classic air-cooled Porsche
+marques, Lamborghini Revuelto (satin blue + white), classic air-cooled Porsche
 911 mid-respray, custom satin finishes, wheel/caliper detail, booth process
 shots. This raised the bar: the brand is a genuine high-end European/exotic
 paint specialist, and copy was updated from "European vehicles" to "European
@@ -120,19 +155,19 @@ cars and exotics."
 `pillow-heif` in a venv) to optimized WebP in `public/images/` (~2.8 MB). Wired
 real images through `next/image`: photo-led home hero, a six-tile work grid, an
 About booth shot (no headshot existed in the set), and a process image in the
-approach block. Added restrained motion — hover zoom on image tiles and a
-`prefers-reduced-motion`-safe scroll reveal — consistent with the brand's
+approach block. Added restrained motion, hover zoom on image tiles and a
+`prefers-reduced-motion`-safe scroll reveal, consistent with the brand's
 precision/restraint. Originals and the full 46-image set were not committed.
 
 **Inspiration referenced:** BMW M / Porsche / Ferrari / Tesla configurator comps
 (car-photo-led heroes, big confident type, spec strips with index numbers,
-metallic/grey cars on clean backgrounds) — already matched by the existing
+metallic/grey cars on clean backgrounds), already matched by the existing
 structure, so imagery slotted in cleanly.
 
 **Verification:** lint clean, build green (8/8), dev server returns 200 on all
 five routes, every image and the `next/image` optimizer resolve.
 
-## 2026-06-18 — Editorial redesign (de-template) + full-screen experience
+## 2026-06-18, Editorial redesign (de-template) + full-screen experience
 
 Client feedback across the session: the site felt sparse, then "like a barebones
 template," and the metallic palette was underused. Reworked into a cinematic,
@@ -162,7 +197,7 @@ list row, repeated hairline-box grids).
 **Verification:** lint clean, build green (8/8 static), all routes 200, security
 headers present, image optimizer + maps embed load under CSP. Dev live on `:3003`.
 
-## 2026-06-18 — M-stripe accent system + imagery scale-up
+## 2026-06-18, M-stripe accent system + imagery scale-up
 
 Two client asks: bring blue in as a structural BMW-M-style accent (not just color
 on buttons), and showcase a much larger share of the photography.
@@ -185,7 +220,7 @@ on buttons), and showcase a much larger share of the photography.
 **Verification:** lint clean, build green (8/8), all routes 200, 44 images on
 disk, experience section live. Dev on `:3003`.
 
-## 2026-06-18 — Car-DNA pass: custom accent, easter eggs, Rainier, placeholders
+## 2026-06-18, Car-DNA pass: custom accent, easter eggs, Rainier, placeholders
 
 Client feedback round focused on identity and craft. Skills consulted again
 (impeccable, taste-skill, ui-ux-pro-max); magic/stitch MCPs were erroring and
@@ -212,7 +247,7 @@ treated as stale per instruction; graph rebuilt via CLI.
 **Verification:** lint clean, build green (8/8 static), all routes 200, graph
 rebuilt (1217 nodes). Dev on `:3003`. magic/stitch MCPs unavailable this session.
 
-## 2026-06-18 — Refinement round: accent, fit, footer, Rainier
+## 2026-06-18, Refinement round: accent, fit, footer, Rainier
 
 Iterative client feedback, all addressed:
 

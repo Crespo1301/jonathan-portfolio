@@ -9,7 +9,7 @@ export function DiscoverStrip() {
   return (
     <section
       id="discover"
-      className="relative border-t border-border bg-steel text-background"
+      className="glow-steel relative border-t border-border text-background"
     >
       <AccentBar className="absolute left-6 top-0 z-10 -translate-y-1/2 sm:left-10" />
       <div className="shell py-14 sm:py-20">

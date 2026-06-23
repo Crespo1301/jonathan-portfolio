@@ -5,8 +5,8 @@ type MapEmbedProps = {
   label?: string;
 };
 
-// Grayscale-filtered map embed (no API key, classic Google Maps embed).
-// The CSS filter keeps it within the monochrome palette.
+// Full-color Google Maps embed (no API key, classic embed). Framed with a
+// hairline border to sit cleanly in the palette.
 export function MapEmbed({
   query = "Bellevue, WA",
   zoom = 11,

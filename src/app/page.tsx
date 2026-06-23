@@ -8,6 +8,8 @@ import { MapEmbed } from "@/components/map-embed";
 import { AccentBar } from "@/components/accent-bar";
 import { Wheel } from "@/components/wheel";
 import { SkylineBackdrop } from "@/components/skyline-backdrop";
+import { QuickActions } from "@/components/quick-actions";
+import { Socials } from "@/components/socials";
 import { site } from "@/data/site";
 import { blur } from "@/data/blur";
 
@@ -17,7 +19,7 @@ export default function HomePage() {
       <SnapMode />
 
       {/* Hero: full-bleed cinematic image with a solid signature bar anchored
-          to the bottom (no scrim/gradient — solid bar per the locked system) */}
+          to the bottom (no scrim/gradient, solid bar per the locked system) */}
       <section id="hero" className="snap-section screen relative overflow-hidden">
         <Image
           src={site.hero.image.src}
@@ -31,24 +33,19 @@ export default function HomePage() {
         />
 
         <div className="relative z-10 mt-auto w-full border-t border-steel-line bg-foreground text-background">
-          <div className="shell py-7 sm:py-9">
+          <div className="shell py-8 sm:py-11">
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
               <AccentBar />
               <span className="text-sm font-semibold uppercase tracking-[0.18em] text-background">
                 Jonathan Crespo
               </span>
               <span className="text-xs uppercase tracking-[0.14em] text-chrome">
-                {site.role} &mdash; {site.location}
+                {site.role}
               </span>
             </div>
 
-            <div className="mt-6 grid gap-7 lg:grid-cols-[1fr_auto] lg:items-end">
-              <div>
-                <h1 className="display">{site.hero.headline}</h1>
-                <p className="mt-4 max-w-md text-sm leading-7 text-chrome">
-                  {site.hero.supporting}
-                </p>
-              </div>
+            <div className="mt-7 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+              <h1 className="display max-w-[20ch]">{site.hero.headline}</h1>
               <div className="flex flex-col gap-3 sm:flex-row lg:pb-2">
                 <Link href={site.hero.primaryCta.href} className="btn btn-primary">
                   {site.hero.primaryCta.label}
@@ -57,6 +54,14 @@ export default function HomePage() {
                   {site.hero.secondaryCta.label}
                 </Link>
               </div>
+            </div>
+
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-steel-line pt-6 text-[0.72rem] uppercase tracking-[0.14em] text-chrome">
+              <span>{site.focus}</span>
+              <span className="text-steel-line">/</span>
+              <span>{site.tenure} refinishing</span>
+              <span className="text-steel-line">/</span>
+              <span>{site.location}</span>
             </div>
           </div>
         </div>
@@ -121,7 +126,7 @@ export default function HomePage() {
       {/* Capabilities: steel panel, statement + editorial list (no card grid) */}
       <section
         id="capabilities"
-        className="snap-section screen relative border-t border-border bg-steel text-background"
+        className="snap-section screen glow-steel relative border-t border-border text-background"
       >
         <AccentBar className="absolute left-6 top-0 z-10 -translate-y-1/2 sm:left-10" />
         <div className="shell flex flex-1 flex-col justify-center py-10 sm:py-14 lg:grid lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
@@ -245,38 +250,24 @@ export default function HomePage() {
               10
             </span>
             <div className="relative z-10">
-              <h2 className="display">{site.experience.statement}</h2>
-              <p className="lead measure mt-6">{site.experience.credibility}</p>
+              <h2 className="h2 max-w-xl">{site.experience.statement}</h2>
+              <p className="lead measure mt-5">{site.experience.credibility}</p>
 
-              <dl className="mt-9 flex flex-wrap gap-x-12 gap-y-5 border-t border-line-strong pt-6">
-                <div>
-                  <dt className="label">Experience</dt>
-                  <dd className="mt-1 text-base text-foreground">{site.tenure}</dd>
-                </div>
-                <div>
-                  <dt className="label">Focus</dt>
-                  <dd className="mt-1 text-base text-foreground">{site.focus}</dd>
-                </div>
-                <div>
-                  <dt className="label">Based in</dt>
-                  <dd className="mt-1 text-base text-foreground">{site.location}</dd>
-                </div>
+              <dl className="mt-8 grid grid-cols-1 gap-x-10 gap-y-3 border-t border-line-strong pt-6 sm:grid-cols-2">
+                {site.experience.skills.map((skill) => (
+                  <div
+                    key={skill}
+                    className="group flex items-center gap-2.5 text-sm text-foreground"
+                  >
+                    <Wheel className="h-4 w-4" />
+                    {skill}
+                  </div>
+                ))}
               </dl>
 
-              <div className="mt-9 border-t border-line-strong pt-6">
-                <p className="label">Capabilities</p>
-                <dl className="mt-4 grid grid-cols-1 gap-x-10 gap-y-3 sm:grid-cols-2">
-                  {site.experience.skills.map((skill) => (
-                    <div
-                      key={skill}
-                      className="group flex items-center gap-2.5 text-sm text-foreground"
-                    >
-                      <Wheel className="h-4 w-4" />
-                      {skill}
-                    </div>
-                  ))}
-                </dl>
-              </div>
+              <Link href="/resume" className="btn btn-secondary mt-8">
+                Full experience
+              </Link>
             </div>
           </div>
           <Unveil className="zoom order-1 min-h-[40svh] border-b border-border lg:order-2 lg:min-h-0 lg:border-b-0 lg:border-l">
@@ -299,7 +290,7 @@ export default function HomePage() {
       {/* Contact: inverse near-black finale with map */}
       <section
         id="contact"
-        className="snap-section screen relative border-t border-border bg-foreground text-background"
+        className="snap-section screen glow-black relative border-t border-border text-background"
       >
         <AccentBar className="absolute left-6 top-0 z-10 -translate-y-1/2 sm:left-10" />
         <div className="shell flex flex-1 flex-col justify-center py-10 sm:py-14">
@@ -307,15 +298,10 @@ export default function HomePage() {
             <Reveal dir="none">
               <h2 className="display text-background">Start a conversation.</h2>
               <p className="lead mt-6 max-w-md text-chrome">{site.contact.copy}</p>
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <a href={`mailto:${site.contact.email}`} className="btn btn-primary">
-                  Email Jonathan
-                </a>
-                <Link href="/work" className="btn btn-on-dark">
-                  See the work
-                </Link>
+              <div className="mt-9">
+                <QuickActions variant="dark" />
               </div>
-              <div className="mt-12 flex flex-wrap gap-x-12 gap-y-5 border-t border-steel-line pt-6">
+              <div className="mt-10 flex flex-wrap items-end justify-between gap-x-12 gap-y-6 border-t border-steel-line pt-6">
                 <div>
                   <p className="label !text-chrome">Location</p>
                   <p className="mt-1 text-base text-background">{site.contact.location}</p>
@@ -325,8 +311,10 @@ export default function HomePage() {
                   <p className="mt-1 text-base text-background">Greater Seattle</p>
                 </div>
                 <div>
-                  <p className="label !text-chrome">Experience</p>
-                  <p className="mt-1 text-base text-background">{site.tenure}</p>
+                  <p className="label !text-chrome">Follow</p>
+                  <div className="mt-2">
+                    <Socials variant="dark" />
+                  </div>
                 </div>
               </div>
             </Reveal>

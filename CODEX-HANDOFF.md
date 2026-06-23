@@ -1,4 +1,4 @@
-# Codex Handoff — Jonathan Portfolio
+# Codex Handoff, Jonathan Portfolio
 
 Created 2026-06-18 by Claude (in the Portfolio repo session). This repo is brand
 new (was just `.git`, remote `git@github.com:Crespo1301/jonathan-portfolio.git`).
@@ -47,7 +47,7 @@ already skips him (it filters on `stripe_subscription_id is not null`).
    `AGENTS.md`, `AI-WORKFLOW.md`, `.env.ai.example`, `.mcp.example.json`, and the
    `scripts/` helpers (`stitch-doctor.sh`, `stitch-proxy.sh`, `magic-mcp.sh`).
 3. **Get Jonathan's brief + content** before designing: what the portfolio is for
-   (resume site, creative work, sales/personal brand — his email is
+   (resume site, creative work, sales/personal brand, his email is
    kingsales92, so likely sales/personal brand), sections, copy, photos, links.
    Do not invent his content.
 4. **No domain yet.** Plan to launch on a Vercel preview/`*.vercel.app` URL first;

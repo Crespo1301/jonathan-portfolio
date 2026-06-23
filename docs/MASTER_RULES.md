@@ -10,6 +10,7 @@ Do not invent Jonathan's story.
 - use direct language
 - do not write fake achievements, metrics, or testimonials
 - do not frame the site in Carlos's voice unless a CSolutions note explicitly needs that
+- never use em dashes (the long U+2014 dash) in copy, comments, or docs. Use a period, comma, or rewrite the sentence instead.
 
 ## Design
 
