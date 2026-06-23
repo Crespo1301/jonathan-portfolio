@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/reveal";
+import { Unveil } from "@/components/unveil";
+import { DiscoverStrip } from "@/components/discover-strip";
 import { SnapMode } from "@/components/snap-mode";
-import { Marquee } from "@/components/marquee";
 import { MapEmbed } from "@/components/map-embed";
 import { AccentBar } from "@/components/accent-bar";
 import { Wheel } from "@/components/wheel";
-import { RainierBackdrop } from "@/components/rainier-backdrop";
+import { SkylineBackdrop } from "@/components/skyline-backdrop";
 import { site } from "@/data/site";
 import { blur } from "@/data/blur";
 
@@ -15,52 +16,51 @@ export default function HomePage() {
     <>
       <SnapMode />
 
-      {/* Hero: asymmetric split, oversized type, full-height image */}
-      <section id="hero" className="snap-section screen relative overflow-hidden xl:pr-14">
-        <RainierBackdrop />
-        <div className="grid flex-1 grid-cols-1 lg:grid-cols-[1.05fr_1fr]">
-          <div className="order-2 flex flex-col justify-center px-6 py-12 sm:px-10 lg:order-1 lg:px-16">
-            <AccentBar className="mb-8" />
-            <h1 className="display-xl">{site.hero.headline}</h1>
-            <p className="lead measure mt-8">{site.hero.supporting}</p>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <Link href={site.hero.primaryCta.href} className="btn btn-primary">
-                {site.hero.primaryCta.label}
-              </Link>
-              <Link href={site.hero.secondaryCta.href} className="btn btn-secondary">
-                {site.hero.secondaryCta.label}
-              </Link>
-            </div>
-          </div>
+      {/* Hero: full-bleed cinematic image with a solid signature bar anchored
+          to the bottom (no scrim/gradient — solid bar per the locked system) */}
+      <section id="hero" className="snap-section screen relative overflow-hidden">
+        <Image
+          src={site.hero.image.src}
+          alt={site.hero.image.alt}
+          fill
+          priority
+          placeholder="blur"
+          blurDataURL={blur[site.hero.image.src]}
+          sizes="100vw"
+          className="object-cover object-center"
+        />
 
-          <div className="relative order-1 min-h-[44svh] border-b border-border lg:order-2 lg:min-h-0 lg:border-b-0 lg:border-l">
-            <AccentBar
-              orientation="vertical"
-              className="absolute left-0 top-10 z-10 lg:-translate-x-1/2"
-            />
-            <Image
-              src={site.hero.image.src}
-              alt={site.hero.image.alt}
-              fill
-              priority
-              placeholder="blur"
-              blurDataURL={blur[site.hero.image.src]}
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover"
-            />
+        <div className="relative z-10 mt-auto w-full border-t border-steel-line bg-foreground text-background">
+          <div className="shell py-7 sm:py-9">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+              <AccentBar />
+              <span className="text-sm font-semibold uppercase tracking-[0.18em] text-background">
+                Jonathan Crespo
+              </span>
+              <span className="text-xs uppercase tracking-[0.14em] text-chrome">
+                {site.role} &mdash; {site.location}
+              </span>
+            </div>
+
+            <div className="mt-6 grid gap-7 lg:grid-cols-[1fr_auto] lg:items-end">
+              <div>
+                <h1 className="display">{site.hero.headline}</h1>
+                <p className="mt-4 max-w-md text-sm leading-7 text-chrome">
+                  {site.hero.supporting}
+                </p>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row lg:pb-2">
+                <Link href={site.hero.primaryCta.href} className="btn btn-primary">
+                  {site.hero.primaryCta.label}
+                </Link>
+                <Link href={site.hero.secondaryCta.href} className="btn btn-on-dark">
+                  {site.hero.secondaryCta.label}
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
-
-      {/* Kinetic marquee transition */}
-      <Marquee
-        items={[
-          "European cars & exotics",
-          "Bellevue, Washington",
-          "Ten years refinishing",
-          "Color-matched finishes",
-        ]}
-      />
 
       {/* Featured build: image-dominant editorial, inline attributes */}
       <section
@@ -69,7 +69,7 @@ export default function HomePage() {
       >
         <AccentBar className="absolute left-6 top-0 z-10 -translate-y-1/2 sm:left-10" />
         <div className="grid flex-1 grid-cols-1 lg:grid-cols-[1.55fr_1fr]">
-          <Reveal dir="none" className="zoom relative min-h-[42svh] lg:min-h-0">
+          <Unveil className="zoom relative min-h-[42svh] lg:min-h-0">
             <AccentBar orientation="vertical" className="absolute left-0 top-8 z-10" />
             <Image
               src={site.featured.lead.src}
@@ -80,7 +80,7 @@ export default function HomePage() {
               sizes="(min-width: 1024px) 60vw, 100vw"
               className="object-cover"
             />
-          </Reveal>
+          </Unveil>
 
           <div className="flex flex-col justify-center gap-9 border-t border-border px-6 py-12 sm:px-10 lg:border-l lg:border-t-0 lg:px-14">
             <Reveal dir="right">
@@ -235,21 +235,51 @@ export default function HomePage() {
         className="snap-section screen relative overflow-hidden border-t border-border"
       >
         <AccentBar className="absolute left-6 top-0 z-10 -translate-y-1/2 sm:left-10" />
-        <RainierBackdrop />
+        <SkylineBackdrop />
         <div className="grid flex-1 grid-cols-1 lg:grid-cols-2">
-          <div className="order-2 flex flex-col justify-center px-6 py-12 sm:px-10 lg:order-1 lg:px-16">
-            <h2 className="display">{site.experience.statement}</h2>
-            <p className="lead measure mt-6">{site.experience.credibility}</p>
-            <dl className="mt-10 grid grid-cols-1 gap-x-10 gap-y-3 border-t border-line-strong pt-6 sm:grid-cols-2">
-              {site.experience.skills.map((skill) => (
-                <div key={skill} className="group flex items-center gap-2.5 text-sm text-foreground">
-                  <Wheel className="h-4 w-4" />
-                  {skill}
+          <div className="relative order-2 flex flex-col justify-center overflow-hidden px-6 py-12 sm:px-10 lg:order-1 lg:px-16">
+            <span
+              aria-hidden="true"
+              className="stat-numeral pointer-events-none absolute -top-6 right-2 z-0 select-none sm:right-6"
+            >
+              10
+            </span>
+            <div className="relative z-10">
+              <h2 className="display">{site.experience.statement}</h2>
+              <p className="lead measure mt-6">{site.experience.credibility}</p>
+
+              <dl className="mt-9 flex flex-wrap gap-x-12 gap-y-5 border-t border-line-strong pt-6">
+                <div>
+                  <dt className="label">Experience</dt>
+                  <dd className="mt-1 text-base text-foreground">{site.tenure}</dd>
                 </div>
-              ))}
-            </dl>
+                <div>
+                  <dt className="label">Focus</dt>
+                  <dd className="mt-1 text-base text-foreground">{site.focus}</dd>
+                </div>
+                <div>
+                  <dt className="label">Based in</dt>
+                  <dd className="mt-1 text-base text-foreground">{site.location}</dd>
+                </div>
+              </dl>
+
+              <div className="mt-9 border-t border-line-strong pt-6">
+                <p className="label">Capabilities</p>
+                <dl className="mt-4 grid grid-cols-1 gap-x-10 gap-y-3 sm:grid-cols-2">
+                  {site.experience.skills.map((skill) => (
+                    <div
+                      key={skill}
+                      className="group flex items-center gap-2.5 text-sm text-foreground"
+                    >
+                      <Wheel className="h-4 w-4" />
+                      {skill}
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </div>
           </div>
-          <div className="zoom relative order-1 min-h-[40svh] border-b border-border lg:order-2 lg:min-h-0 lg:border-b-0 lg:border-l">
+          <Unveil className="zoom order-1 min-h-[40svh] border-b border-border lg:order-2 lg:min-h-0 lg:border-b-0 lg:border-l">
             <Image
               src={site.experience.image.src}
               alt={site.experience.image.alt}
@@ -259,9 +289,12 @@ export default function HomePage() {
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"
             />
-          </div>
+          </Unveil>
         </div>
       </section>
+
+      {/* Discover: Rolls-Royce-style three-up teaser strip */}
+      <DiscoverStrip />
 
       {/* Contact: inverse near-black finale with map */}
       <section

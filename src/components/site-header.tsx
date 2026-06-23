@@ -20,7 +20,7 @@ export function SiteHeader() {
               <span className="hidden sm:inline">Jonathan Crespo</span>
             </span>
           </Link>
-          <nav className="flex items-center gap-x-3.5 text-[0.75rem] sm:gap-x-5 sm:text-[0.8rem]">
+          <nav className="flex items-center gap-x-4 text-[0.72rem] uppercase tracking-[0.12em] sm:gap-x-7 sm:text-[0.75rem]">
             {site.nav.map((item) => {
               const active =
                 item.href === "/"

@@ -1,5 +1,72 @@
 # Claude Track Record
 
+## 2026-06-22 — Feedback round: header, marquee, skyline, footer, focus
+
+Same-day client feedback:
+
+- **Header.** Tried a single-button overlay "MENU" navbar; client rejected it.
+  Reverted to a refined visible inline nav (wordmark left, links right, active
+  underline). Header z-index back to 30.
+- **Side scroller removed.** Deleted the kinetic marquee strip under the hero
+  (component, usage, and CSS) — it read as too busy.
+- **Bellevue skyline backdrop.** Replaced the Mount Rainier silhouette with a
+  downtown Bellevue skyline (`SkylineBackdrop`): varied towers + tall center
+  spire, low treeline, and a faint Rainier dome behind for the PNW nod. Kept the
+  scroll-driven parallax (`.skyline-parallax`, reduced-motion safe). Used in the
+  hero and experience sections.
+- **Footer.** Removed the oversized tonal "CRESPO" wordmark (client disliked it);
+  tightened the closeout bar.
+- **De-emphasize the blue Lambo.** Client wants the focus on Jonathan, not one
+  car. Swapped the experience image off the satin-blue Revuelto to the classic
+  red Porsche 911 (range contrast). Blue hero kept per his choice.
+- **Experience expanded.** Felt short — added a spec strip (experience / focus /
+  based-in) and a labeled "Capabilities" group above the skills, layered over the
+  oversized "10". All from confirmed facts only.
+- **Intake email drafted** at `docs/outreach/jonathan-intake-email.md` — numbered
+  questions to gather his story, work, photos, real contact info, and the
+  direction he wants; includes the Vercel preview link for review.
+
+- **Hero rebuilt → full-bleed cinematic** (client's pick). The blue Revuelto now
+  fills the viewport edge-to-edge with a solid near-black signature bar anchored
+  at the bottom: AccentBar + "Jonathan Crespo" + role/location, the headline, a
+  short supporting line, and the two CTAs (`btn-on-dark` for the secondary).
+  No scrim/gradient — solid bar per the locked rules. Skyline dropped from the
+  hero (a full-bleed image hides it); it stays in the experience section.
+
+**Verification:** lint clean, build green (8/8), no stale refs.
+
+## 2026-06-22 — Luxury-brand cues (Rolls-Royce + West Coast Customs)
+
+Carlos brought reference screenshots of the Rolls-Royce and West Coast Customs
+sites and asked to replicate high-end elements in our style. Since Jonathan is a
+European/exotic paint specialist, the auto-luxury references are on-niche, not
+borrowed glamour. Translated three signatures *through* the locked system (no
+gradients/glass/translucency, single azure accent, sharp corners, reduced-motion
+safe) rather than copying them:
+
+- **`Unveil` cinematic "sheet-pull" reveal** (Rolls-Royce car-under-fabric): a
+  solid `steel` panel slides off an image as it scrolls into view. JS-driven via
+  `data-shown`, gated to `prefers-reduced-motion: no-preference` so non-JS /
+  reduced-motion users always see the image. Applied to the featured lead and
+  the experience image (not the LCP hero, to protect load). New
+  `src/components/unveil.tsx` + `.unveil`/`.unveil-cover` CSS.
+- **`DiscoverStrip` three-up teaser finale** (Rolls-Royce bottom nav strip):
+  near-black `steel` band with three linked teasers (Work / Craft / Shop), each
+  with a sliding arrow on hover. Recolored to graphite so the page darkens
+  white → graphite → black into the contact finale. New
+  `src/components/discover-strip.tsx` + `discover` data in `site.ts`.
+- **Oversized "10" statement** (West Coast Customs "32 YEARS"): a giant tonal
+  silver numeral behind the Experience copy — Jonathan's confirmed decade at WCC
+  scale, kept monochrome and as a watermark so the heading stays full-contrast.
+  `.stat-numeral` CSS.
+
+No copy invented; all teaser/statement text uses confirmed facts. Palette and
+hard rules untouched.
+
+**Verification:** `npm run lint` clean, `npm run build` green (8/8 static), home
+route 200 with all three elements present in served HTML. Push/versioning left to
+Codex per the role split.
+
 ## 2026-06-18 — First real design pass (European auto-paint brand)
 
 **Trigger:** Jonathan's real direction landed. He is an automotive paint

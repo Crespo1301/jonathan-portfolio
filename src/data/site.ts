@@ -123,8 +123,8 @@ export const site = {
     credibility:
       "A decade refinishing high-end European cars and exotics in Bellevue, Washington. The standard is set by the cars that come through the door, and it holds on every one.",
     image: {
-      src: "/images/revuelto-side.webp",
-      alt: "Satin-blue Lamborghini Revuelto refinished by Jonathan Crespo.",
+      src: "/images/porsche-red-side.webp",
+      alt: "Classic Porsche 911 refinished in deep gloss red by Jonathan Crespo.",
     },
     skills: [
       "Color matching & custom mixing",
@@ -183,6 +183,25 @@ export const site = {
     { src: "/images/wheel-3.webp", alt: "Refinished exotic wheel detail.", make: "Wheel", work: "Detail" },
     { src: "/images/wheel-4.webp", alt: "Refinished wheel and tire.", make: "Wheel", work: "Refinish" },
     { src: "/images/caliper.webp", alt: "Painted brake caliper detail.", make: "Brake caliper", work: "Color match" },
+  ],
+
+  // Rolls-Royce-style three-up teaser strip (home finale, before contact).
+  discover: [
+    {
+      title: "The work",
+      copy: "Refinishes and full resprays, start to finish.",
+      href: "/work",
+    },
+    {
+      title: "The craft",
+      copy: "Color matched and checked under proper light.",
+      href: "/about",
+    },
+    {
+      title: "The shop",
+      copy: "European cars and exotics, ten years in Bellevue.",
+      href: "/contact",
+    },
   ],
 
   contact: {

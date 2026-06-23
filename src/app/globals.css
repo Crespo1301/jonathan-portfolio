@@ -254,6 +254,7 @@ a {
   outline-offset: 2px;
 }
 
+
 /* Image framing — covers a fixed ratio, no rounding */
 .frame {
   position: relative;
@@ -309,12 +310,12 @@ a {
   }
 }
 
-/* Mount Rainier backdrop: scroll-driven parallax drift. Pure CSS view-timeline,
+/* Bellevue skyline backdrop: scroll-driven parallax drift. Pure CSS view-timeline,
    gracefully static where unsupported, disabled under reduced motion. */
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
-    .rainier-parallax {
-      animation: rainier-drift linear both;
+    .skyline-parallax {
+      animation: skyline-drift linear both;
       animation-timeline: view();
       animation-range: cover 0% cover 100%;
       will-change: transform;
@@ -322,12 +323,12 @@ a {
   }
 }
 
-@keyframes rainier-drift {
+@keyframes skyline-drift {
   from {
-    transform: translateY(14%);
+    transform: translateY(9%);
   }
   to {
-    transform: translateY(-16%);
+    transform: translateY(-10%);
   }
 }
 
@@ -364,41 +365,69 @@ a {
   height: 2.5rem;
 }
 
-/* Kinetic marquee */
-.marquee {
+/* Cinematic "sheet-pull" unveil: a solid panel that covers an image, then
+   slides off as the image scrolls into view (Rolls-Royce reveal, translated to
+   the locked system — solid color, no gradient/scrim). JS-driven via data-shown.
+   Default (no JS / reduced motion) leaves the cover out of frame so the image
+   is always visible. */
+.unveil {
+  position: relative;
   overflow: hidden;
-  border-block: 1px solid var(--steel-line);
+}
+
+.unveil-cover {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
   background: var(--steel);
-  color: var(--background);
-}
-
-.marquee-inner {
-  display: flex;
-  width: max-content;
-}
-
-.marquee-track {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  padding-block: 0.9rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  white-space: nowrap;
+  transform: translateY(-101%);
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .marquee-track {
-    animation: marquee-scroll 32s linear infinite;
+  .unveil-cover {
+    transform: translateY(0);
+    transition: transform 1100ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .unveil[data-shown="true"] .unveil-cover {
+    transform: translateY(-101%);
   }
 }
 
-@keyframes marquee-scroll {
-  to {
-    transform: translateX(-100%);
+/* Discover strip: Rolls-Royce three-up teaser. Arrow slides on hover. */
+.discover-cell {
+  transition: background-color 200ms ease;
+}
+
+.discover-cell:hover,
+.discover-cell:focus-visible {
+  background: var(--foreground);
+}
+
+.discover-arrow {
+  display: inline-block;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .discover-arrow {
+    transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
   }
+
+  .group:hover .discover-arrow,
+  .group:focus-visible .discover-arrow {
+    transform: translateX(0.4rem);
+  }
+}
+
+/* West-Coast-scale tonal statement numeral (e.g. "10"), set behind content. */
+.stat-numeral {
+  font-size: clamp(11rem, 34vw, 30rem);
+  line-height: 0.74;
+  letter-spacing: -0.05em;
+  font-weight: 700;
+  color: var(--silver);
+  user-select: none;
 }
 
 /* Map embed: monochrome to match the palette */

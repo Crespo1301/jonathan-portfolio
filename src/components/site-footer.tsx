@@ -54,19 +54,8 @@ export function SiteFooter() {
           </div>
         </div>
 
-        {/* Oversized tonal wordmark */}
-        <div className="mt-16 border-t border-steel-line pt-8">
-          <p
-            className="select-none font-semibold leading-[0.8] tracking-tight text-steel-line"
-            style={{ fontSize: "clamp(3.5rem, 16vw, 13rem)" }}
-            aria-hidden="true"
-          >
-            CRESPO
-          </p>
-        </div>
-
         {/* Bottom bar */}
-        <div className="mt-8 flex flex-col gap-2 text-xs text-chrome sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-16 flex flex-col gap-2 border-t border-steel-line pt-8 text-xs text-chrome sm:flex-row sm:items-center sm:justify-between">
           <p>&copy; {year} Jonathan Crespo. All rights reserved.</p>
           <p>Automotive paint specialist, Bellevue WA.</p>
           <p>Built and maintained by CSolutions.</p>
