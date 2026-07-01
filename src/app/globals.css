@@ -522,6 +522,17 @@ a {
   background: var(--gold);
 }
 
+.brand-logo {
+  height: 1.9rem;
+  width: auto;
+  opacity: 0.55;
+  transition: opacity 200ms ease;
+}
+
+.brand-logo:hover {
+  opacity: 1;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .brand-track {
     animation: brand-scroll 28s linear infinite;

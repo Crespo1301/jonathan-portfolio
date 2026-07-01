@@ -198,9 +198,14 @@ export const site = {
   },
 
   // Brands in the booth: marques Jonathan has refinished (from his work) plus his
-  // signature paint system. Wordmarks for now (trademark-safe); drop real SVGs in
-  // public/logos and switch BrandMarquee to <img> if/when Jonathan authorizes them.
-  brands: ["Lamborghini", "Porsche", "Glasurit 100 Line", "BASF"],
+  // signature paint system. `file` renders a logo SVG (public/logos); entries
+  // without a file render as a text wordmark.
+  brands: [
+    { name: "Lamborghini", file: "/logos/lamborghini.svg" },
+    { name: "Porsche", file: "/logos/porsche.svg" },
+    { name: "Glasurit 100 Line" },
+    { name: "BASF" },
+  ],
 
   // Full work gallery (/work). 44 real images with car + work info.
   // `make`/`work` are kept conservative; confirm details with Jonathan.

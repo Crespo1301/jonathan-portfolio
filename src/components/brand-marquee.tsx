@@ -14,7 +14,12 @@ export function BrandMarquee() {
           <div className="brand-track">
             {loop.map((brand, i) => (
               <span key={i} className="flex items-center gap-8" aria-hidden={i >= site.brands.length}>
-                <span className="brand-word">{brand}</span>
+                {brand.file ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={brand.file} alt={brand.name} className="brand-logo" />
+                ) : (
+                  <span className="brand-word">{brand.name}</span>
+                )}
                 <span className="brand-dot" />
               </span>
             ))}

@@ -74,8 +74,10 @@ now live in `site.ts`). Still open:
    contact before launch. Wire a real form backend (Formspree/Web3Forms) then.
 2. **Photos.** Hi-res work photos, a headshot, and (optionally) TikTok clips or
    frames. Current photography caps hero quality.
-3. **Brand logos.** `BrandMarquee` uses trademark-safe wordmarks; swap to real
-   SVGs in `public/logos` only if Jonathan authorizes the marque/Glasurit logos.
+3. **Brand logos.** `BrandMarquee` uses real logo SVGs for Lamborghini + Porsche
+   (`public/logos`, from Simple Icons) and text wordmarks for Glasurit 100 Line +
+   BASF (no clean SVGs sourced). Add BASF/Glasurit SVGs to `public/logos` and give
+   them a `file` in `site.ts` `brands` if desired. Confirm logo use is authorized.
 4. **Confirm claims.** "Million-dollar cars", "first in the PNW on Glasurit 100
    Line", and "OEM standard or better" are his own words; keep as-is unless he
    revises. Do not name the shop until he says it is public.
