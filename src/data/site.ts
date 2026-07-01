@@ -1,14 +1,18 @@
 // Single source of content for the site.
-// Confirmed facts only: Jonathan Crespo, automotive paint specialist, European
-// cars and exotics, Bellevue WA, 10+ years. Anything still pending from Jonathan
-// is noted in HANDOFF.md. Do not invent metrics, client names, or shop names.
+// Confirmed facts (from Jonathan, 2026-06-24): automotive paint specialist in
+// Bellevue WA. In the trade ~14 years (since ~2012), painting since summer 2016.
+// Work spans collision repair to full restoration on high-end and exotic cars,
+// held to an OEM standard or better. First painter in the PNW to use Glasurit
+// 100 Line. Runs a high-end paint shop and manages multiple preppers. Do NOT
+// invent the shop name, metrics, or client names. Contact details (email, phone,
+// socials) are still pending, see HANDOFF.md.
 
 export const site = {
   owner: "Jonathan Crespo",
   role: "Automotive Paint Specialist",
-  focus: "European cars & exotics",
+  focus: "Collision repair to full restoration",
   location: "Bellevue, Washington",
-  tenure: "10+ years",
+  tenure: "14 years",
 
   nav: [
     { href: "/", label: "Home" },
@@ -30,9 +34,9 @@ export const site = {
   ],
 
   hero: {
-    headline: "Paintwork built for European cars.",
+    headline: "A finish beyond factory standard.",
     supporting:
-      "Automotive paint specialist in Bellevue, Washington. More than ten years refinishing European cars and exotics to an exact, lasting finish.",
+      "High-end automotive paint in Bellevue, Washington. From collision repair to full restoration, matched by hand and finished in Glasurit 100 Line to an OEM standard or better.",
     image: {
       src: "/images/revuelto-detail.webp",
       alt: "Close detail of a satin-blue Lamborghini Revuelto, bronze wheel and refinished paint by Jonathan Crespo.",
@@ -62,31 +66,31 @@ export const site = {
 
   // Numbered typographic list (not a card grid). Confirm wording with Jonathan.
   capabilities: [
-    { title: "Color matching", copy: "Factory color identification and custom mixing for a seamless, invisible match." },
-    { title: "Panel & paint repair", copy: "Damage repair and refinishing that restores the original surface and edge." },
-    { title: "Full resprays", copy: "Complete refinishing for a uniform, showroom-level result on the whole vehicle." },
-    { title: "Finish correction", copy: "Correction and refinement of existing paint for depth, clarity, and a clean reflection." },
+    { title: "Collision repair", copy: "From small fender benders to major damage. Panels straightened and repaired correctly before a drop of primer goes on." },
+    { title: "Color matching & custom color", copy: "Factory colors matched by hand, or a custom color made from scratch, for a seamless, invisible blend." },
+    { title: "Full restoration", copy: "Complete refinishing that brings a car back better than it left the factory." },
+    { title: "Paint correction", copy: "Buffing and polishing that pull out depth, clarity, and a clean, even reflection." },
   ],
 
   // Real respray sequence on a classic Porsche 911.
   process: {
     title: "From bare panel to finished car.",
     summary:
-      "Every car moves through the same controlled sequence. This classic Porsche 911 shows it end to end.",
+      "Every car moves through the same controlled sequence, and nothing advances until the step before it is right. This classic Porsche 911 shows it end to end.",
     steps: [
       {
         title: "Preparation",
-        copy: "Surfaces corrected and masked with the patience the final coat depends on.",
+        copy: "Panels made straight and every repair verified before a drop of primer goes on.",
         image: { src: "/images/porsche-primer.webp", alt: "Classic Porsche 911 in grey primer, masked in the spray booth." },
       },
       {
         title: "Application",
-        copy: "Color laid in controlled conditions for even coverage and true depth.",
+        copy: "Color laid in controlled conditions, in Glasurit 100 Line, for even coverage and true depth.",
         image: { src: "/images/porsche-fender.webp", alt: "Freshly painted glossy red Porsche fender drying in the booth." },
       },
       {
         title: "Finish",
-        copy: "Checked under proper light for match and clarity before delivery.",
+        copy: "Buffed, polished, and checked under proper light to an OEM standard or better before delivery.",
         image: { src: "/images/porsche-painted.webp", alt: "Classic Porsche 911 refinished in deep gloss red." },
       },
     ],
@@ -103,10 +107,10 @@ export const site = {
   ],
 
   about: {
-    title: "Bellevue-based, European-focused.",
+    title: "Fourteen years in the trade.",
     paragraphs: [
-      "Jonathan Crespo has spent more than ten years refinishing automobiles in Bellevue, Washington, with a focus on European cars and exotics and the exact standard their owners expect.",
-      "The work is steady and deliberate: matching color precisely, keeping edges clean, and delivering a finish that holds up over time. Reputation here is built one car at a time.",
+      "Jonathan Crespo got into the automotive industry about fourteen years ago, right out of high school, detailing cars at a collision shop and learning paint correction, buffing, and polishing. Six months in he moved up to the paint shop as a prepper, and after three years he picked up the gun. He has been painting cars since the summer of 2016.",
+      "Today he works out of a high-end shop in Bellevue, Washington, known for its standards and its reputation, on everything from everyday collision repair to full restorations and million-dollar cars. He runs the paint shop and a team of preppers, holding every step to an OEM standard or better.",
     ],
     images: [
       { src: "/images/about-booth.webp", alt: "Classic Porsche 911 masked and prepared for refinishing in the spray booth." },
@@ -118,52 +122,85 @@ export const site = {
   experience: {
     title: "Experience & skills.",
     summary:
-      "More than ten years of hands-on automotive refinishing in Bellevue, Washington, specializing in European cars and exotics.",
-    statement: "Ten years of European paint, built in Bellevue.",
+      "Fourteen years in automotive refinishing, painting since 2016, on high-end and exotic cars in Bellevue, Washington.",
+    statement: "A painter's standard, built over fourteen years.",
     credibility:
-      "A decade refinishing high-end European cars and exotics in Bellevue, Washington. The standard is set by the cars that come through the door, and it holds on every one.",
+      "From detailing and paint correction to running a high-end paint shop. Fourteen years in the trade, painting since 2016, holding every car to an OEM standard or better.",
     image: {
       src: "/images/huracan-rear.webp",
       alt: "Teal Lamborghini Huracán refinished by Jonathan Crespo, rear three-quarter in the shop.",
     },
     // Longer narrative for the Experience (/resume) page. Confirmed facts only.
     narrative: [
-      "Jonathan Crespo has spent more than ten years refinishing automobiles in Bellevue, Washington, with a focus on European cars and exotics. The work runs from single-panel repairs to full resprays, custom finishes, color matching, and finish correction.",
-      "The approach is the same on every car: surfaces prepared with care, color matched precisely, and the finish checked under proper light before it leaves the booth. The result is paintwork that looks right the day it is delivered and holds up over the years that follow.",
+      "Jonathan started in the automotive industry about fourteen years ago, straight out of high school, detailing and correcting paint at a collision shop before moving up to the booth. He has been painting cars since the summer of 2016.",
+      "The difference is in the time and attention. Panels are made straight and repairs verified before priming, and his preppers double and triple check their work before a car moves to the next step. He was the first painter in the Pacific Northwest to work in Glasurit 100 Line, and among the most experienced with it in the region.",
     ],
     skills: [
-      "Color matching & custom mixing",
-      "Surface preparation & correction",
-      "Spray application & blending",
-      "Clear-coat & finish work",
-      "Panel & collision refinishing",
-      "Detailing & final inspection",
+      "Color matching & custom color",
+      "Surface prep & panel straightening",
+      "Glasurit 100 Line application",
+      "Paint correction, buffing & polishing",
+      "Collision repair & full restoration",
+      "Paint shop & prepper management",
     ],
-    // What comes through the booth, categories supported by his actual work.
+    // Categories supported by his actual work and his own description.
     specialties: [
-      "European cars & exotics",
-      "Classic & vintage refinishing",
-      "Custom & satin finishes",
-      "Full resprays & panel repair",
-      "Wheels, calipers & detail work",
+      "Collision repair to full restoration",
+      "High-end & exotic cars",
+      "Custom color & hand matching",
+      "Paint correction & finish work",
+      "Paint shop & team leadership",
+    ],
+    // Career timeline (from Jonathan's own account).
+    timeline: [
+      {
+        year: "2012",
+        title: "Detailing & correction",
+        copy: "Started at a collision shop out of high school, detailing and learning paint correction, buffing, and polishing.",
+      },
+      {
+        year: "2013",
+        title: "Paint prepper",
+        copy: "Moved up to the paint shop and spent three years prepping panels and repairs to standard.",
+      },
+      {
+        year: "2016",
+        title: "Behind the gun",
+        copy: "Started painting cars at 23, and has refinished ever since.",
+      },
+      {
+        year: "Now",
+        title: "Running the booth",
+        copy: "Leads a high-end paint shop and its preppers, and was the first in the PNW to use Glasurit 100 Line.",
+      },
+    ],
+    // Credibility highlights, straight from his description.
+    knownFor: [
+      "First painter in the PNW to use Glasurit 100 Line",
+      "Work on high-end, exotic, and million-dollar cars",
+      "An OEM-standard-or-better quality bar",
+      "Leading a paint shop and its prep team",
     ],
   },
 
-  // Professional refinish systems & materials. Jonathan works with WESCO, the
-  // regional paint, body & equipment supplier. (Confirm exact paint brand /
-  // certifications with Jonathan before adding specific product names, see
-  // HANDOFF.md.)
+  // Glasurit 100 Line is Jonathan's signature system (his own words: first painter
+  // in the PNW to use it, most experience with it). BASF is Glasurit's parent.
   materials: {
-    title: "Professional systems and materials.",
+    title: "Finished in Glasurit 100 Line.",
     copy:
-      "Jonathan works with professional automotive refinish systems and supplies through WESCO, the western North America paint, body and equipment supplier trusted by collision and finishing shops across the region. The right materials, applied in controlled conditions, are what make a finish last.",
+      "Jonathan was the first painter in the Pacific Northwest to work in Glasurit 100 Line, BASF's premium waterborne refinish system, and is among the most experienced with it in the region. It is the class of system trusted for factory-level and high-end refinishing.",
     points: [
-      "Professional-grade refinish paint systems",
-      "Primers, sealers, clear-coats and abrasives",
+      "Glasurit 100 Line waterborne basecoat",
       "Factory color identification and custom mixing",
       "Booth-controlled application and curing",
+      "OEM-standard-or-better quality control",
     ],
   },
+
+  // Brands in the booth: marques Jonathan has refinished (from his work) plus his
+  // signature paint system. Wordmarks for now (trademark-safe); drop real SVGs in
+  // public/logos and switch BrandMarquee to <img> if/when Jonathan authorizes them.
+  brands: ["Lamborghini", "Porsche", "Glasurit 100 Line", "BASF"],
 
   // Full work gallery (/work). 44 real images with car + work info.
   // `make`/`work` are kept conservative; confirm details with Jonathan.

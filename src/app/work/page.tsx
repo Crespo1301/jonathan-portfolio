@@ -68,7 +68,7 @@ export default function WorkPage() {
       <SectionShell
         index="01"
         title="Selected work."
-        copy="European cars and exotics are the focus, and the work goes further. Full resprays, panel repair, custom finishes, and fine detail across more than forty jobs."
+        copy="From everyday collision repair to full restoration, on high-end and exotic cars. Resprays, custom color, correction, and fine detail across more than forty jobs, finished in Glasurit 100 Line."
       >
         <Reveal dir="none" className="group">
           <div className="zoom frame relative aspect-[16/9] sm:aspect-[21/9]">

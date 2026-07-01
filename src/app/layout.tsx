@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Jonathan Crespo | Automotive Paint Specialist",
   description:
-    "Jonathan Crespo is an automotive paint specialist in Bellevue, Washington, with more than ten years refinishing European vehicles to an exact, lasting finish.",
+    "Jonathan Crespo is a high-end automotive paint specialist in Bellevue, Washington. Fourteen years in the trade, from collision repair to full restoration, finished in Glasurit 100 Line to an OEM standard or better.",
 };
 
 export default function RootLayout({

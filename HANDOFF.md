@@ -65,14 +65,22 @@ zip and re-run the blur generator to refresh `src/data/blur.ts`.
 
 ## Pending From Jonathan Before Public Launch
 
-1. **Real contact email**, `site.contact.email` is `hello@example.com`.
-2. **Confirm captions, model names, and publishing rights** for the work photos;
-   confirm/adjust the `capabilities` and `featured` build attributes.
-3. **About voice + Experience detail**, currently confirmed facts only; add his
-   fuller story, timeline, or certifications when provided.
-4. **Map precision**, embed is centered on "Bellevue, WA"; swap to a precise
-   address/pin once the shop location is public (if desired).
-5. **Headshot**, none existed in the set; About uses a booth shot.
+Brief confirmed 2026-06-24 (his story, services, Glasurit 100 Line, timeline are
+now live in `site.ts`). Still open:
+
+1. **Real contact details.** `site.contact.email` (`hello@example.com`),
+   `site.contact.phone`, and `site.socials` URLs are all placeholders. His
+   personal email is `jonathan.crespo92@icloud.com`; confirm the public-facing
+   contact before launch. Wire a real form backend (Formspree/Web3Forms) then.
+2. **Photos.** Hi-res work photos, a headshot, and (optionally) TikTok clips or
+   frames. Current photography caps hero quality.
+3. **Brand logos.** `BrandMarquee` uses trademark-safe wordmarks; swap to real
+   SVGs in `public/logos` only if Jonathan authorizes the marque/Glasurit logos.
+4. **Confirm claims.** "Million-dollar cars", "first in the PNW on Glasurit 100
+   Line", and "OEM standard or better" are his own words; keep as-is unless he
+   revises. Do not name the shop until he says it is public.
+5. **Map precision.** Embed centered on "Bellevue, WA"; swap to a pin once the
+   shop address is public.
 
 ## Weak Spots To Review
 

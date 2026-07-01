@@ -492,6 +492,52 @@ a {
   user-select: none;
 }
 
+/* Brand wordmark carousel (marques + paint system). Slow, subtle, pauses on
+   hover, static under reduced motion. No gradients. */
+.brand-marquee {
+  overflow: hidden;
+  flex: 1;
+}
+
+.brand-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 3.5rem;
+}
+
+.brand-word {
+  white-space: nowrap;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.brand-dot {
+  width: 0.28rem;
+  height: 0.28rem;
+  flex-shrink: 0;
+  background: var(--gold);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .brand-track {
+    animation: brand-scroll 28s linear infinite;
+  }
+
+  .brand-marquee:hover .brand-track {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes brand-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 /* Map embed: monochrome to match the palette */
 .map-frame {
   position: relative;

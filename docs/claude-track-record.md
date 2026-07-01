@@ -1,5 +1,27 @@
 # Claude Track Record
 
+## 2026-06-24 , Jonathan's real brief threaded through the site
+
+His intake answers arrived, which corrected the positioning: he is a high-end
+refinisher spanning collision repair to full restoration (not narrowly
+European/exotic), works on million-dollar cars, holds work to an OEM standard or
+better, runs a shop and prep team, and is the first painter in the PNW on
+Glasurit 100 Line. Rewrote all copy in `site.ts` around his own words (identity,
+hero, capabilities, process, about bio, experience) and reconciled tenure to 14
+years in the trade / painting since 2016 (home numeral now "14").
+
+- **New content:** a career `timeline` and a `knownFor` list; the `/resume` page
+  rebuilt to surface both plus a Glasurit 100 Line materials panel (replacing the
+  generic WESCO framing, since Glasurit is his stated specialty).
+- **Brand carousel:** new `BrandMarquee`, a slow trademark-safe wordmark strip
+  (Lamborghini, Porsche, Glasurit 100 Line, BASF) on the home page. Real logos
+  can be dropped into `public/logos` later if authorized. (magic MCP had no logos
+  for these marques; hotlinking trademarked logos is a risk anyway.)
+- **Metadata + work copy** updated to the new positioning.
+- Contact email/phone/socials remain placeholders (still pending from Jonathan).
+
+**Verification:** lint clean, build green (6 routes), zero em dashes.
+
 ## 2026-06-22 , Premium-color direction + outreach + content passes
 
 Large client-driven round (Carlos, live on the Vercel preview):

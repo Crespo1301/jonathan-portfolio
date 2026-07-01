@@ -7,8 +7,8 @@ import { site } from "@/data/site";
 import { blur } from "@/data/blur";
 
 const glance = [
-  { label: "Experience", value: site.tenure },
-  { label: "Focus", value: site.focus },
+  { label: "In the trade", value: site.tenure },
+  { label: "Painting since", value: "2016" },
   { label: "Based in", value: site.location },
   { label: "Service area", value: "Greater Seattle" },
 ];
@@ -16,7 +16,7 @@ const glance = [
 export default function ExperiencePage() {
   return (
     <>
-      {/* 01, Intro: asymmetric statement + at-a-glance spec sheet (white) */}
+      {/* 01 , Intro: statement + narrative + at-a-glance + known for */}
       <section className="border-t border-border">
         <div className="shell py-16 sm:py-24">
           <div className="grid gap-12 lg:grid-cols-[1.25fr_0.75fr] lg:gap-16">
@@ -45,16 +45,52 @@ export default function ExperiencePage() {
                   </div>
                 ))}
               </dl>
+
+              <div className="mt-10">
+                <p className="label">Known for</p>
+                <ul className="mt-4 space-y-3.5">
+                  {site.experience.knownFor.map((item) => (
+                    <li key={item} className="group flex items-start gap-3 text-base leading-6 text-foreground">
+                      <Wheel className="mt-0.5 h-4 w-4" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </aside>
           </div>
         </div>
       </section>
 
-      {/* 02, What I do: capability spec-row (silver) */}
+      {/* 02 , The path: career timeline */}
       <section className="border-t border-border bg-silver">
         <div className="shell py-16 sm:py-20">
           <div className="flex items-baseline gap-4">
-            <span className="index">02</span>
+            <span className="index text-base">02</span>
+            <h2 className="h2">The path.</h2>
+          </div>
+          <ol className="mt-10 border-t border-line-strong">
+            {site.experience.timeline.map((t) => (
+              <li
+                key={t.year}
+                className="grid gap-2 border-b border-line-strong py-7 sm:grid-cols-[9rem_1fr] sm:gap-8"
+              >
+                <div className="index text-lg">{t.year}</div>
+                <div>
+                  <h3 className="text-xl font-semibold tracking-tight">{t.title}</h3>
+                  <p className="measure mt-2 text-base leading-7 text-muted">{t.copy}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* 03 , What I do: capability spec-row */}
+      <section className="border-t border-border">
+        <div className="shell py-16 sm:py-20">
+          <div className="flex items-baseline gap-4">
+            <span className="index text-base">03</span>
             <h2 className="h2">What I do.</h2>
           </div>
           <div className="mt-10 grid grid-cols-1 gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
@@ -68,11 +104,11 @@ export default function ExperiencePage() {
         </div>
       </section>
 
-      {/* 03, Process: image-led sequence (white) */}
-      <section className="border-t border-border">
+      {/* 04 , Process: image-led sequence */}
+      <section className="border-t border-border bg-silver">
         <div className="shell py-16 sm:py-20">
           <div className="flex items-baseline gap-4">
-            <span className="index">03</span>
+            <span className="index text-base">04</span>
             <div className="max-w-2xl">
               <h2 className="h2">{site.process.title}</h2>
               <p className="lead mt-4">{site.process.summary}</p>
@@ -103,13 +139,13 @@ export default function ExperiencePage() {
         </div>
       </section>
 
-      {/* 04, Materials & systems: steel panel (WESCO) */}
+      {/* 05 , Materials & systems: Glasurit 100 Line (steel panel) */}
       <section className="glow-steel relative border-t border-border text-background">
         <AccentBar className="absolute left-6 top-0 z-10 -translate-y-1/2 sm:left-10" />
         <div className="shell py-16 sm:py-20">
           <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-16">
             <div>
-              <span className="index !text-chrome">04</span>
+              <span className="index !text-gold">05</span>
               <h2 className="h2 mt-3 text-background">{site.materials.title}</h2>
               <p className="lead mt-5 text-chrome">{site.materials.copy}</p>
             </div>
@@ -128,11 +164,11 @@ export default function ExperiencePage() {
         </div>
       </section>
 
-      {/* 05, Specialties + hands-on skills: two-column lists (silver) */}
+      {/* 06 , Specialties + hands-on skills */}
       <section className="border-t border-border bg-silver">
         <div className="shell py-16 sm:py-20">
           <div className="flex items-baseline gap-4">
-            <span className="index">05</span>
+            <span className="index text-base">06</span>
             <h2 className="h2">What comes through the booth.</h2>
           </div>
           <div className="mt-10 grid grid-cols-1 gap-x-16 gap-y-10 lg:grid-cols-2">
@@ -168,7 +204,7 @@ export default function ExperiencePage() {
         </div>
       </section>
 
-      {/* CTA finale (near-black) */}
+      {/* CTA finale */}
       <section className="glow-black relative border-t border-border text-background">
         <AccentBar className="absolute left-6 top-0 z-10 -translate-y-1/2 sm:left-10" />
         <div className="shell py-16 sm:py-20">

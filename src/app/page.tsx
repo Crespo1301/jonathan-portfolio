@@ -10,6 +10,7 @@ import { Wheel } from "@/components/wheel";
 import { SkylineBackdrop } from "@/components/skyline-backdrop";
 import { QuickActions } from "@/components/quick-actions";
 import { Socials } from "@/components/socials";
+import { BrandMarquee } from "@/components/brand-marquee";
 import { site } from "@/data/site";
 import { blur } from "@/data/blur";
 
@@ -122,6 +123,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Brand carousel: marques + paint system in the booth */}
+      <BrandMarquee />
 
       {/* Capabilities: steel panel, statement + editorial list (no card grid) */}
       <section
@@ -247,7 +251,7 @@ export default function HomePage() {
               aria-hidden="true"
               className="stat-numeral pointer-events-none absolute -top-6 right-2 z-0 select-none sm:right-6"
             >
-              10
+              14
             </span>
             <div className="relative z-10">
               <h2 className="h2 max-w-xl">{site.experience.statement}</h2>
