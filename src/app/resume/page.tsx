@@ -157,17 +157,17 @@ export default function ExperiencePage() {
               <h2 className="h2 mt-3 text-background">{site.materials.title}</h2>
               <p className="lead mt-5 text-chrome">{site.materials.copy}</p>
             </div>
-            <dl className="grid grid-cols-1 gap-px border border-steel-line bg-steel-line sm:grid-cols-2">
+            <ul className="grid list-none grid-cols-1 gap-px border border-steel-line bg-steel-line sm:grid-cols-2">
               {site.materials.points.map((point) => (
-                <div
+                <li
                   key={point}
                   className="group flex items-center gap-3 bg-steel p-6 text-base text-background"
                 >
                   <Wheel className="h-4 w-4" />
                   {point}
-                </div>
+                </li>
               ))}
-            </dl>
+            </ul>
           </div>
         </div>
       </section>
@@ -196,17 +196,17 @@ export default function ExperiencePage() {
             </div>
             <div>
               <p className="label">Hands-on skills</p>
-              <dl className="mt-5 grid grid-cols-1 gap-x-10 gap-y-3 sm:grid-cols-2">
+              <ul className="mt-5 grid list-none grid-cols-1 gap-x-10 gap-y-3 sm:grid-cols-2">
                 {site.experience.skills.map((skill) => (
-                  <div
+                  <li
                     key={skill}
                     className="group flex items-center gap-2.5 text-sm text-foreground"
                   >
                     <Wheel className="h-4 w-4" />
                     {skill}
-                  </div>
+                  </li>
                 ))}
-              </dl>
+              </ul>
             </div>
           </div>
         </div>

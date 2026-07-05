@@ -27,6 +27,7 @@ export default function HomePage() {
           alt={site.hero.image.alt}
           fill
           priority
+          quality={70}
           placeholder="blur"
           blurDataURL={blur[site.hero.image.src]}
           sizes="100vw"
@@ -257,17 +258,17 @@ export default function HomePage() {
               <h2 className="h2 max-w-xl">{site.experience.statement}</h2>
               <p className="lead measure mt-5">{site.experience.credibility}</p>
 
-              <dl className="mt-8 grid grid-cols-1 gap-x-10 gap-y-3 border-t border-line-strong pt-6 sm:grid-cols-2">
+              <ul className="mt-8 grid list-none grid-cols-1 gap-x-10 gap-y-3 border-t border-line-strong pt-6 sm:grid-cols-2">
                 {site.experience.skills.map((skill) => (
-                  <div
+                  <li
                     key={skill}
                     className="group flex items-center gap-2.5 text-sm text-foreground"
                   >
                     <Wheel className="h-4 w-4" />
                     {skill}
-                  </div>
+                  </li>
                 ))}
-              </dl>
+              </ul>
 
               <Link href="/resume" className="btn btn-secondary mt-8">
                 Full experience

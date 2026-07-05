@@ -8,7 +8,7 @@
   --foreground: #0b0b0c;
   --steel: #25272b; /* dark brushed graphite */
   --steel-line: #3a3d44; /* hairline on steel */
-  --muted: #6b7078;
+  --muted: #5a5f66; /* darkened so muted/lead/label text passes AA on silver too */
   --border: #dcdee2;
   --line-strong: #c4c7cd;
   --chrome: #9aa0a8;
