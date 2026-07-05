@@ -3,31 +3,69 @@
 import { useState, type FormEvent } from "react";
 import { site } from "@/data/site";
 
-// Lightweight contact form. With no backend wired yet, submitting composes an
-// email in the visitor's mail app (mailto). Swap to a form endpoint (Formspree /
-// Web3Forms) once Jonathan's real inbox is confirmed. See HANDOFF.md.
+// If NEXT_PUBLIC_FORM_ENDPOINT is set (a Formspree/Web3Forms URL), the form POSTs
+// there. Otherwise it falls back to composing an email (mailto), so it works with
+// no backend today. See HANDOFF.md to wire the real endpoint once Jonathan's inbox
+// is confirmed.
+const ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT;
+
 const inputClass =
   "mt-2 w-full border border-line-strong bg-surface px-4 py-3 text-base text-foreground outline-none transition-colors focus:border-accent";
 
-export function ContactForm() {
-  const [sent, setSent] = useState(false);
+type Status = "idle" | "sending" | "sent" | "error";
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+export function ContactForm() {
+  const [status, setStatus] = useState<Status>("idle");
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const f = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const f = new FormData(form);
+    const payload = Object.fromEntries(f.entries());
+
+    if (ENDPOINT) {
+      try {
+        setStatus("sending");
+        const res = await fetch(ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({ ...payload, _subject: `Website inquiry from ${payload.name || "a visitor"}` }),
+        });
+        if (!res.ok) throw new Error("Request failed");
+        form.reset();
+        setStatus("sent");
+      } catch {
+        setStatus("error");
+      }
+      return;
+    }
+
+    // No backend: compose an email instead.
     const body = [
-      `Name: ${f.get("name")}`,
-      `Email: ${f.get("email")}`,
-      `Phone: ${f.get("phone")}`,
-      `Vehicle: ${f.get("vehicle")}`,
+      `Name: ${payload.name ?? ""}`,
+      `Email: ${payload.email ?? ""}`,
+      `Phone: ${payload.phone ?? ""}`,
+      `Vehicle: ${payload.vehicle ?? ""}`,
       "",
-      String(f.get("message") ?? ""),
+      String(payload.message ?? ""),
     ].join("\n");
-    const subject = `Website inquiry from ${f.get("name") || "a visitor"}`;
+    const subject = `Website inquiry from ${payload.name || "a visitor"}`;
     window.location.href = `mailto:${site.contact.email}?subject=${encodeURIComponent(
       subject,
     )}&body=${encodeURIComponent(body)}`;
-    setSent(true);
+    setStatus("sent");
+  }
+
+  if (status === "sent") {
+    return (
+      <div className="border border-line-strong bg-surface p-8">
+        <p className="text-lg font-semibold text-foreground">Thanks, message sent.</p>
+        <p className="mt-2 text-base text-muted">
+          Jonathan will get back to you shortly. Prefer to talk now? Call or text using the
+          buttons on this page.
+        </p>
+      </div>
+    );
   }
 
   return (
@@ -76,12 +114,12 @@ export function ContactForm() {
       </div>
 
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-        <button type="submit" className="btn btn-primary">
-          Send message
+        <button type="submit" className="btn btn-primary" disabled={status === "sending"}>
+          {status === "sending" ? "Sending" : "Send message"}
         </button>
-        {sent && (
+        {status === "error" && (
           <p className="text-sm text-muted">
-            Opening your email app. If nothing happens, email {site.contact.email} directly.
+            Something went wrong. Please email {site.contact.email} directly.
           </p>
         )}
       </div>

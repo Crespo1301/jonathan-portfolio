@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { MapEmbed } from "@/components/map-embed";
 import { ContactForm } from "@/components/contact-form";
 import { QuickActions } from "@/components/quick-actions";
@@ -6,6 +7,13 @@ import { AccentBar } from "@/components/accent-bar";
 import { site } from "@/data/site";
 
 const tel = site.contact.phone.replace(/[^+\d]/g, "");
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Get in touch with Jonathan Crespo, automotive paint specialist in Bellevue, WA. Call, text, email, or send a message about the car and finish you have in mind.",
+  alternates: { canonical: "/contact" },
+};
 
 export default function ContactPage() {
   return (

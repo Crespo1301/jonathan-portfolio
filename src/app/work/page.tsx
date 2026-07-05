@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { SectionShell } from "@/components/section-shell";
@@ -54,6 +55,13 @@ function Tile({ item, delay, feature }: { item: Item; delay: number; feature?: b
     </Reveal>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Work",
+  description:
+    "Selected refinishing work by Jonathan Crespo: collision repair to full restoration on exotic and high-end cars, custom color, correction, and detail, finished in Glasurit 100 Line.",
+  alternates: { canonical: "/work" },
+};
 
 export default function WorkPage() {
   const [lead, ...rest] = site.workGallery;

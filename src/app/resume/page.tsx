@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/reveal";
@@ -12,6 +13,13 @@ const glance = [
   { label: "Based in", value: site.location },
   { label: "Service area", value: "Greater Seattle" },
 ];
+
+export const metadata: Metadata = {
+  title: "Experience",
+  description:
+    "Jonathan Crespo's experience: fourteen years in automotive refinishing, painting since 2016, first painter in the PNW on Glasurit 100 Line, holding every car to an OEM standard or better.",
+  alternates: { canonical: "/resume" },
+};
 
 export default function ExperiencePage() {
   return (

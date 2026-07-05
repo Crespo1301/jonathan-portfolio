@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { SectionShell } from "@/components/section-shell";
 import { Reveal } from "@/components/reveal";
@@ -5,6 +6,13 @@ import { MapEmbed } from "@/components/map-embed";
 import { Placeholder } from "@/components/placeholder";
 import { site } from "@/data/site";
 import { blur } from "@/data/blur";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Fourteen years in the trade: Jonathan Crespo went from detailing and paint correction to running a high-end paint shop in Bellevue, WA, painting since 2016 to an OEM standard or better.",
+  alternates: { canonical: "/about" },
+};
 
 export default function AboutPage() {
   return (
