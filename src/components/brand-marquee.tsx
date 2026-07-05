@@ -16,7 +16,7 @@ export function BrandMarquee() {
               <span key={i} className="flex items-center gap-8" aria-hidden={i >= site.brands.length}>
                 {brand.file ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={brand.file} alt={brand.name} className="brand-logo" />
+                  <img src={brand.file} alt={brand.name} width={30} height={30} className="brand-logo" />
                 ) : (
                   <span className="brand-word">{brand.name}</span>
                 )}
