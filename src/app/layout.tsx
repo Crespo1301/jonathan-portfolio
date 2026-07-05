@@ -110,9 +110,17 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
         />
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-foreground focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-background"
+        >
+          Skip to content
+        </a>
         <div className="flex min-h-screen flex-col">
           <SiteHeader />
-          <main className="flex-1">{children}</main>
+          <main id="main" className="flex-1">
+            {children}
+          </main>
           <SiteFooter />
         </div>
       </body>

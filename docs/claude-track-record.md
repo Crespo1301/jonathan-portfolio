@@ -1,5 +1,26 @@
 # Claude Track Record
 
+## 2026-06-24 , Mobile pass + accessibility + SEO
+
+- **SEO/AEO:** Person JSON-LD (personal brand, not local business), full metadata
+  (title template, keywords, canonical, OG profile + Twitter), per-page metadata,
+  dynamic `next/og` share image, `sitemap.ts`, `robots.ts`. Form now posts to
+  `NEXT_PUBLIC_FORM_ENDPOINT` (Formspree/Web3Forms) with mailto fallback.
+- **Navbar:** removed the azure accent bar next to the wordmark; tightened the
+  nav for small screens and hid the redundant "Home" item on mobile (logo links
+  home).
+- **Mobile:** `overflow-x: hidden` guard; smaller `.display` floor (2.35rem) so
+  hero/finale headings fit small phones; calmer `.stat-numeral` on mobile.
+- **Accessibility:** index numbers moved off low-contrast gold to an accessible
+  slate (gold stays decorative on the aria-hidden wheel marks + brand dots);
+  dark-section index set to chrome; added a skip-to-content link and `id="main"`.
+  Wheel already aria-hidden; MapEmbed already titled.
+
+Note: Lighthouse could not be run in-tool; this is a code-level a11y/perf pass.
+Run Lighthouse / PageSpeed on the deployed URL to confirm scores.
+
+**Verification:** lint clean, build green (11 static routes), zero em dashes.
+
 ## 2026-06-24 , Jonathan's real brief threaded through the site
 
 His intake answers arrived, which corrected the positioning: he is a high-end

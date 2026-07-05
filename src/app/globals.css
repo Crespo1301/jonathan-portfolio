@@ -86,6 +86,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   font-feature-settings: "ss01", "cv01";
+  overflow-x: hidden; /* guard against accidental horizontal scroll on mobile */
 }
 
 a {
@@ -101,8 +102,8 @@ a {
 
 /* Typography */
 .display {
-  font-size: clamp(2.9rem, 7.4vw, 6.5rem);
-  line-height: 0.94;
+  font-size: clamp(2.35rem, 7.4vw, 6.5rem);
+  line-height: 0.96;
   letter-spacing: -0.03em;
   font-weight: 650;
 }
@@ -153,7 +154,9 @@ a {
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.14em;
-  color: var(--gold);
+  /* accessible slate (gold text fails contrast on light surfaces; gold stays a
+     decorative accent on the wheel marks + brand dots) */
+  color: #4f545c;
 }
 
 /* Surfaces, flat, hairline borders, no shadow, sharp corners */
@@ -484,7 +487,7 @@ a {
 
 /* West-Coast-scale tonal statement numeral (e.g. "10"), set behind content. */
 .stat-numeral {
-  font-size: clamp(11rem, 34vw, 30rem);
+  font-size: clamp(7rem, 30vw, 30rem);
   line-height: 0.74;
   letter-spacing: -0.05em;
   font-weight: 700;

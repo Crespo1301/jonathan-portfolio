@@ -153,7 +153,7 @@ export default function ExperiencePage() {
         <div className="shell py-16 sm:py-20">
           <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-16">
             <div>
-              <span className="index !text-gold">05</span>
+              <span className="index !text-chrome">05</span>
               <h2 className="h2 mt-3 text-background">{site.materials.title}</h2>
               <p className="lead mt-5 text-chrome">{site.materials.copy}</p>
             </div>

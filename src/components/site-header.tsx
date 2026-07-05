@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AccentBar } from "@/components/accent-bar";
 import { site } from "@/data/site";
 
 export function SiteHeader() {
@@ -12,26 +11,27 @@ export function SiteHeader() {
     <header className="sticky top-0 z-30 bg-background">
       <div className="chrome-rule" />
       <div className="border-b border-border">
-        <div className="shell flex h-[var(--header-h)] items-center justify-between gap-4">
-          <Link href="/" className="flex items-center gap-2.5">
-            <AccentBar />
+        <div className="shell flex h-[var(--header-h)] items-center justify-between gap-3">
+          <Link href="/" className="flex items-center">
             <span className="text-sm font-semibold uppercase tracking-[0.18em] text-foreground">
               <span className="sm:hidden">Crespo</span>
               <span className="hidden sm:inline">Jonathan Crespo</span>
             </span>
           </Link>
-          <nav className="flex items-center gap-x-4 text-[0.72rem] uppercase tracking-[0.12em] sm:gap-x-7 sm:text-[0.75rem]">
+          <nav className="flex items-center gap-x-3.5 text-[0.7rem] uppercase tracking-[0.03em] sm:gap-x-6 sm:text-[0.78rem] sm:tracking-[0.1em]">
             {site.nav.map((item) => {
               const active =
                 item.href === "/"
                   ? pathname === "/"
                   : pathname.startsWith(item.href);
+              // The logo already links home; hide the Home item on mobile to save room.
+              const mobileHidden = item.href === "/" ? "hidden sm:inline-block" : "";
               return (
                 <Link
                   key={item.href}
                   href={item.href}
                   data-active={active}
-                  className="nav-link whitespace-nowrap"
+                  className={`nav-link whitespace-nowrap ${mobileHidden}`}
                 >
                   {item.label}
                 </Link>
