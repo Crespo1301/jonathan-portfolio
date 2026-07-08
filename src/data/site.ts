@@ -127,8 +127,8 @@ export const site = {
     credibility:
       "From detailing and paint correction to running a high-end paint shop. Fourteen years in the trade, painting since 2016, holding every car to an OEM standard or better.",
     image: {
-      src: "/images/huracan-rear.webp",
-      alt: "Teal Lamborghini Huracán refinished by Jonathan Crespo, rear three-quarter in the shop.",
+      src: "/images/jonathan-painting.webp",
+      alt: "Jonathan Crespo spraying a masked exotic in the booth, laying down a fresh coat.",
     },
     // Longer narrative for the Experience (/resume) page. Confirmed facts only.
     narrative: [
@@ -280,8 +280,7 @@ export const site = {
     copy: "Tell Jonathan about the car and the finish you have in mind. Quotes and timing are handled directly.",
     location: "Bellevue, Washington",
     // PENDING, replace with Jonathan's real details before launch (see HANDOFF.md).
-    email: "hello@example.com",
-    phone: "+1 (425) 555-0142", // PENDING real number; used for call + text buttons
+    email: "hello@example.com", // PENDING Jonathan's real email
     note: "Serving Bellevue and the greater Seattle area.",
   },
 

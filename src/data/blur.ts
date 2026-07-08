@@ -2,6 +2,8 @@
 // Regenerate with the blur script if images change.
 
 export const blur: Record<string, string> = {
+  "/images/jonathan-portrait.webp": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAACwBQCdASoUACMAPu1krE4ppaSiKqwBMB2JZwDN/BRP8tOZL80orWAFdI7bYtq+GtupWsIGFIAA/tO2gTQEzqE5D2Bnyt9DyORUevvx+Ye3uUqxsn9ecckZZ23RbAVHCsRzKXSRj7PwKw78qPvFSql9fUotW42G5awWzlEht7CKkB8lE4atyotn5n1b1KEIRkACSwW0MHFzgC6lJbZ9asV+oAAAAA==",
+  "/images/jonathan-painting.webp": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAACQAwCdASoUAAsAPu1iqU2ppaOiMAgBMB2JYgAAPwAyNa44VuAoAP6zr1xdrvjbcDmjghyPe25YKyxyeFKIqoiDXsT64tNaq9DxX0yULr/lqlG6LIKy/0YWUeVf+Kwi934eUIw8IBC+1E7C/ric6nAAy9ehdmzzYgz8yRLjji9rVfJp4bLE1Ykq4gU8wAAA",
   "/images/about-booth.webp": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAAAQBACdASoUAA8APu1iqU2ppaOiMAgBMB2JZwAAWi3jHERAmgdJAg2cAAD+xd3Q1bnDGU5mmahwhgYoYh1Zu/gADWfXLYoKPRd+0hf5pDLCRbq6HdAtlqgefpz2VB+5XM7ape1WyW5nyxEg9pdSng8AAAA=",
   "/images/blue-front-booth.webp": "data:image/webp;base64,UklGRsAAAABXRUJQVlA4ILQAAABQBQCdASoUABsAPu1qrFEppaQiqAqpMB2JZgC7ABGb99s4Ui+UDw3yVEzMctq38LOXyAAA/lh/bZikz+ztC2Pr5Bgi4xmDnkWNn7T2jQDYU4HOkf0OzjUBDY32CjzL4AZldIXshFhJ5k/5RUt1Dzk55O/eCYWdAfGUsRU62ZYvKnsSXHzqVAauKrCNmvKHo86seHvQ8K4+v2S4YgfCJCySjnIsVMR6rE02+td3zJIp+3YdgAA=",
   "/images/bumper-stand-2.webp": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAAAQBACdASoUAA8APu1iqU2ppaOiMAgBMB2JZwC+SCHuxeAL/ut/NSFoAAD+Xx2bdw3jARbLjs02wy58hXTaND0e3XC77EubMx1fztxe/Y0uwnOkzq7cZqFJLyQo+126A6HoSZBT2uvvk/J7nWC9qphiAAA=",

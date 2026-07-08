@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 // No custom domain yet; update to the real domain at launch.
-const SITE_URL = "https://jonathan-portfolio-swart.vercel.app";
+const SITE_URL = "https://jczdripp.com";
 
 const description =
   "Jonathan Crespo is a high-end automotive paint specialist based in Bellevue, Washington. Fourteen years in the trade, from collision repair to full restoration on exotic and million-dollar cars, finished in Glasurit 100 Line to an OEM standard or better.";

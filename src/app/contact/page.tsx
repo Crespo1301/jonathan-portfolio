@@ -6,12 +6,10 @@ import { Socials } from "@/components/socials";
 import { AccentBar } from "@/components/accent-bar";
 import { site } from "@/data/site";
 
-const tel = site.contact.phone.replace(/[^+\d]/g, "");
-
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Jonathan Crespo, automotive paint specialist in Bellevue, WA. Call, text, email, or send a message about the car and finish you have in mind.",
+    "Get in touch with Jonathan Crespo, automotive paint specialist in Bellevue, WA. Email or send a message about the car and finish you have in mind.",
   alternates: { canonical: "/contact" },
 };
 
@@ -46,17 +44,6 @@ export default function ContactPage() {
                       className="text-lg text-foreground underline-offset-4 transition-colors hover:text-accent"
                     >
                       {site.contact.email}
-                    </a>
-                  </dd>
-                </div>
-                <div>
-                  <dt className="label">Phone</dt>
-                  <dd className="mt-2">
-                    <a
-                      href={`tel:${tel}`}
-                      className="text-lg text-foreground underline-offset-4 transition-colors hover:text-accent"
-                    >
-                      {site.contact.phone}
                     </a>
                   </dd>
                 </div>

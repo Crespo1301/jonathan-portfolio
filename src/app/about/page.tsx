@@ -3,7 +3,6 @@ import Image from "next/image";
 import { SectionShell } from "@/components/section-shell";
 import { Reveal } from "@/components/reveal";
 import { MapEmbed } from "@/components/map-embed";
-import { Placeholder } from "@/components/placeholder";
 import { site } from "@/data/site";
 import { blur } from "@/data/blur";
 
@@ -20,11 +19,19 @@ export default function AboutPage() {
       <SectionShell index="01" title={site.about.title}>
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.05fr_1fr] lg:items-start">
           <Reveal dir="left">
-            <Placeholder
-              label="Headshot of Jonathan"
-              dims="Portrait, 1200 x 1500"
-              className="aspect-[4/5]"
-            />
+            <div className="frame lift relative aspect-[4/5] overflow-hidden">
+              <Image
+                src="/images/jonathan-portrait.webp"
+                alt="Jonathan Crespo in the spray booth, gun in hand."
+                fill
+                priority
+                placeholder="blur"
+                blurDataURL={blur["/images/jonathan-portrait.webp"]}
+                sizes="(min-width: 1024px) 520px, 100vw"
+                className="object-cover"
+                style={{ objectPosition: "50% 22%" }}
+              />
+            </div>
           </Reveal>
 
           <div>
