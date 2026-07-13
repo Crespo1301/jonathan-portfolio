@@ -15,7 +15,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// No custom domain yet; update to the real domain at launch.
 const SITE_URL = "https://jczdripp.com";
 
 const description =
@@ -68,6 +67,8 @@ export const metadata: Metadata = {
 };
 
 // Person structured data so he is findable as a professional (not a local shop).
+// hasOccupation is the signal that carries the actual goal here: this person does
+// this job, in this region, with these skills, and is discoverable for it.
 const personLd = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -75,7 +76,7 @@ const personLd = {
   jobTitle: site.role,
   description,
   url: SITE_URL,
-  image: `${SITE_URL}/opengraph-image`,
+  image: `${SITE_URL}/images/jonathan-portrait.webp`,
   address: {
     "@type": "PostalAddress",
     addressLocality: "Bellevue",
@@ -91,8 +92,17 @@ const personLd = {
     "Paint correction",
     "Paint shop and prepper management",
   ],
-  // Only real social URLs (skip the REPLACE_ME placeholders).
-  sameAs: site.socials.map((s) => s.url).filter((u) => !u.includes("REPLACE_ME")),
+  hasOccupation: {
+    "@type": "Occupation",
+    name: site.role,
+    occupationLocation: {
+      "@type": "City",
+      name: "Bellevue, Washington",
+    },
+    skills: site.experience.skills,
+    description: site.experience.credibility,
+  },
+  sameAs: site.socials.map((s) => s.url),
 };
 
 export default function RootLayout({
