@@ -61,8 +61,8 @@ export function ContactForm() {
       <div className="border border-line-strong bg-surface p-8">
         <p className="text-lg font-semibold text-foreground">Thanks, message sent.</p>
         <p className="mt-2 text-base text-muted">
-          Jonathan will get back to you shortly. Prefer to talk now? Call or text using the
-          buttons on this page.
+          I will get back to you shortly. You can also reach me by email using the button on
+          this page.
         </p>
       </div>
     );

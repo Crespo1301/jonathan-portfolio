@@ -30,7 +30,7 @@ export default function ContactPage() {
             </div>
 
             <aside className="lg:border-l lg:border-border lg:pl-12">
-              <p className="label">Reach Jonathan directly</p>
+              <p className="label">Reach me directly</p>
               <div className="mt-5">
                 <QuickActions />
               </div>

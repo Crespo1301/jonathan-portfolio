@@ -14,7 +14,7 @@ export function QuickActions({ variant = "light" }: { variant?: "light" | "dark"
   return (
     <div className="flex flex-col gap-3 sm:flex-row">
       <a href={`mailto:${site.contact.email}`} className="btn btn-primary gap-2">
-        {MailIcon} Email Jonathan
+        {MailIcon} Email me
       </a>
     </div>
   );

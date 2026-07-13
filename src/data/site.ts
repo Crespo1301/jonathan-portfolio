@@ -4,8 +4,12 @@
 // Work spans collision repair to full restoration on high-end and exotic cars,
 // held to an OEM standard or better. First painter in the PNW to use Glasurit
 // 100 Line. Runs a high-end paint shop and manages multiple preppers. Do NOT
-// invent the shop name, metrics, or client names. Contact details (email, phone,
-// socials) are still pending, see HANDOFF.md.
+// invent the shop name, metrics, or client names. The public email is still
+// pending, see HANDOFF.md.
+//
+// VOICE: on-page copy is first person, as if Jonathan is speaking. Page metadata
+// and JSON-LD stay third person, since that is how search and answer engines
+// describe a person in a result.
 
 export const site = {
   owner: "Jonathan Crespo",
@@ -109,8 +113,8 @@ export const site = {
   about: {
     title: "Fourteen years in the trade.",
     paragraphs: [
-      "Jonathan Crespo got into the automotive industry about fourteen years ago, right out of high school, detailing cars at a collision shop and learning paint correction, buffing, and polishing. Six months in he moved up to the paint shop as a prepper, and after three years he picked up the gun. He has been painting cars since the summer of 2016.",
-      "Today he works out of a high-end shop in Bellevue, Washington, known for its standards and its reputation, on everything from everyday collision repair to full restorations and million-dollar cars. He runs the paint shop and a team of preppers, holding every step to an OEM standard or better.",
+      "I got into the automotive industry about fourteen years ago, right out of high school, detailing cars at a collision shop and learning paint correction, buffing, and polishing. Six months in I moved up to the paint shop as a prepper, and after three years I picked up the gun. I have been painting cars since the summer of 2016.",
+      "Today I work out of a high-end shop in Bellevue, Washington, known for its standards and its reputation, on everything from everyday collision repair to full restorations and million-dollar cars. I run the paint shop and a team of preppers, and hold every step to an OEM standard or better.",
     ],
     images: [
       { src: "/images/about-booth.webp", alt: "Classic Porsche 911 masked and prepared for refinishing in the spray booth." },
@@ -132,8 +136,8 @@ export const site = {
     },
     // Longer narrative for the Experience (/resume) page. Confirmed facts only.
     narrative: [
-      "Jonathan started in the automotive industry about fourteen years ago, straight out of high school, detailing and correcting paint at a collision shop before moving up to the booth. He has been painting cars since the summer of 2016.",
-      "The difference is in the time and attention. Panels are made straight and repairs verified before priming, and his preppers double and triple check their work before a car moves to the next step. He was the first painter in the Pacific Northwest to work in Glasurit 100 Line, and among the most experienced with it in the region.",
+      "I started in the automotive industry about fourteen years ago, straight out of high school, detailing and correcting paint at a collision shop before moving up to the booth. I have been painting cars since the summer of 2016.",
+      "The difference is in the time and attention. Panels are made straight and repairs verified before priming, and my preppers double and triple check their work before a car moves to the next step. I was the first painter in the Pacific Northwest to work in Glasurit 100 Line, and I am among the most experienced with it in the region.",
     ],
     skills: [
       "Color matching & custom color",
@@ -156,22 +160,22 @@ export const site = {
       {
         year: "2012",
         title: "Detailing & correction",
-        copy: "Started at a collision shop out of high school, detailing and learning paint correction, buffing, and polishing.",
+        copy: "I started at a collision shop out of high school, detailing and learning paint correction, buffing, and polishing.",
       },
       {
         year: "2013",
         title: "Paint prepper",
-        copy: "Moved up to the paint shop and spent three years prepping panels and repairs to standard.",
+        copy: "I moved up to the paint shop and spent three years prepping panels and repairs to standard.",
       },
       {
         year: "2016",
         title: "Behind the gun",
-        copy: "Started painting cars at 23, and has refinished ever since.",
+        copy: "I started painting cars at 23, and I have refinished ever since.",
       },
       {
         year: "Now",
         title: "Running the booth",
-        copy: "Leads a high-end paint shop and its preppers, and was the first in the PNW to use Glasurit 100 Line.",
+        copy: "I lead a high-end paint shop and its preppers, and I was the first in the PNW to use Glasurit 100 Line.",
       },
     ],
     // Credibility highlights, straight from his description.
@@ -188,7 +192,7 @@ export const site = {
   materials: {
     title: "Finished in Glasurit 100 Line.",
     copy:
-      "Jonathan was the first painter in the Pacific Northwest to work in Glasurit 100 Line, BASF's premium waterborne refinish system, and is among the most experienced with it in the region. It is the class of system trusted for factory-level and high-end refinishing.",
+      "I was the first painter in the Pacific Northwest to work in Glasurit 100 Line, BASF's premium waterborne refinish system, and I am among the most experienced with it in the region. It is the class of system trusted for factory-level and high-end refinishing.",
     points: [
       "Glasurit 100 Line waterborne basecoat",
       "Factory color identification and custom mixing",
@@ -265,19 +269,19 @@ export const site = {
     },
     {
       title: "The craft",
-      copy: "Color matched and checked under proper light.",
+      copy: "Color matched by hand and checked under proper light.",
       href: "/about",
     },
     {
       title: "The shop",
-      copy: "European cars and exotics, ten years in Bellevue.",
+      copy: "European cars and exotics, fourteen years in Bellevue.",
       href: "/contact",
     },
   ],
 
   contact: {
     title: "Start a conversation.",
-    copy: "Tell Jonathan about the car and the finish you have in mind. Quotes and timing are handled directly.",
+    copy: "Tell me about the car and the finish you have in mind. I handle quotes and timing directly.",
     location: "Bellevue, Washington",
     // PENDING, replace with Jonathan's real details before launch (see HANDOFF.md).
     email: "hello@example.com", // PENDING Jonathan's real email

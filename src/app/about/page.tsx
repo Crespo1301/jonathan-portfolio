@@ -85,7 +85,7 @@ export default function AboutPage() {
             <div>
               <h2 className="h2">Based in Bellevue.</h2>
               <p className="lead mt-5 max-w-md">
-                Working out of Bellevue and serving the greater Seattle area.
+                I work out of Bellevue and serve the greater Seattle area.
               </p>
             </div>
             <MapEmbed className="aspect-[16/9] w-full" zoom={11} />

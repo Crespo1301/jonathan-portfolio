@@ -23,7 +23,7 @@ export function SiteFooter() {
               href={`mailto:${site.contact.email}`}
               className="btn btn-primary mt-7"
             >
-              Email Jonathan
+              Email me
             </a>
             <div className="mt-8">
               <Socials variant="dark" />

@@ -136,7 +136,7 @@ export default function WorkPage() {
                 Get in touch
               </Link>
               <Link href="/about" className="btn btn-on-dark">
-                About Jonathan
+                About me
               </Link>
             </div>
           </div>
