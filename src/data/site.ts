@@ -4,8 +4,7 @@
 // Work spans collision repair to full restoration on high-end and exotic cars,
 // held to an OEM standard or better. First painter in the PNW to use Glasurit
 // 100 Line. Runs a high-end paint shop and manages multiple preppers. Do NOT
-// invent the shop name, metrics, or client names. The public email is still
-// pending, see HANDOFF.md.
+// invent the shop name, metrics, or client names.
 //
 // VOICE: on-page copy is first person, as if Jonathan is speaking. Page metadata
 // and JSON-LD stay third person, since that is how search and answer engines
@@ -283,8 +282,7 @@ export const site = {
     title: "Start a conversation.",
     copy: "Tell me about the car and the finish you have in mind. I handle quotes and timing directly.",
     location: "Bellevue, Washington",
-    // PENDING, replace with Jonathan's real details before launch (see HANDOFF.md).
-    email: "hello@example.com", // PENDING Jonathan's real email
+    email: "jczdripp@gmail.com",
     note: "Serving Bellevue and the greater Seattle area.",
   },
 

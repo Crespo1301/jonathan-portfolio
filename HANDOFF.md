@@ -68,12 +68,10 @@ zip and re-run the blur generator to refresh `src/data/blur.ts`.
 Brief confirmed 2026-06-24 (his story, services, Glasurit 100 Line, timeline are
 now live in `site.ts`). Still open:
 
-1. **Public email. LAUNCH BLOCKER.** `site.contact.email` is still
-   `hello@example.com`. Email is now the only contact channel (phone was removed
-   at his request), so every Email button and the form's mailto fallback are dead
-   until this is real. Options: a `jonathan@jczdripp.com` Porkbun forward, or a
-   personal address he approves. Wire a form backend (Formspree/Web3Forms) via
-   `NEXT_PUBLIC_FORM_ENDPOINT` at the same time.
+1. **Form backend.** `site.contact.email` is live (`jczdripp@gmail.com`), so the
+   form's mailto fallback works and every Email button resolves. Optional upgrade:
+   set `NEXT_PUBLIC_FORM_ENDPOINT` (Formspree/Web3Forms) so the form posts
+   directly instead of opening the visitor's mail client.
 2. **Socials.** Only TikTok (`@jczdrip`) is confirmed and live. Add Instagram /
    YouTube to `site.socials` when he sends handles; the component renders the list.
 3. **Photos.** Hi-res work photos beyond the two he sent (`jonathan-portrait`,
@@ -104,9 +102,15 @@ DNS lands.
 
 Remaining to go live:
 
-1. Add `jczdripp.com` (and `www`) to the Vercel project, then set the DNS records
-   Vercel shows in Porkbun. Redirect `www` to the apex.
-2. Land the real public email (see blocker above) before announcing.
+1. Add `jczdripp.com` (and `www`) to the Vercel project, then point Porkbun's
+   authoritative nameservers at Vercel. Redirect `www` to the apex.
+
+This is now the only launch blocker. Note it also gates link previews: `og:image`
+resolves against `jczdripp.com`, so shared links render a blank preview until the
+domain answers.
+
+Icon: chrome JCZ roundel (`src/lib/icon-mark.tsx`), confirmed by Jonathan
+2026-07. The `/icon-lab` candidate gallery has been removed.
 
 ## Closeout Checklist (per AGENTS.md)
 

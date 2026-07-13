@@ -77,6 +77,7 @@ const personLd = {
   description,
   url: SITE_URL,
   image: `${SITE_URL}/images/jonathan-portrait.webp`,
+  email: site.contact.email,
   address: {
     "@type": "PostalAddress",
     addressLocality: "Bellevue",
