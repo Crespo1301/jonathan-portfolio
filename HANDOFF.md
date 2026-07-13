@@ -68,20 +68,24 @@ zip and re-run the blur generator to refresh `src/data/blur.ts`.
 Brief confirmed 2026-06-24 (his story, services, Glasurit 100 Line, timeline are
 now live in `site.ts`). Still open:
 
-1. **Real contact details.** `site.contact.email` (`hello@example.com`),
-   `site.contact.phone`, and `site.socials` URLs are all placeholders. His
-   personal email is `jonathan.crespo92@icloud.com`; confirm the public-facing
-   contact before launch. Wire a real form backend (Formspree/Web3Forms) then.
-2. **Photos.** Hi-res work photos, a headshot, and (optionally) TikTok clips or
-   frames. Current photography caps hero quality.
-3. **Brand logos.** `BrandMarquee` uses real logo SVGs for Lamborghini + Porsche
+1. **Public email. LAUNCH BLOCKER.** `site.contact.email` is still
+   `hello@example.com`. Email is now the only contact channel (phone was removed
+   at his request), so every Email button and the form's mailto fallback are dead
+   until this is real. Options: a `jonathan@jczdripp.com` Porkbun forward, or a
+   personal address he approves. Wire a form backend (Formspree/Web3Forms) via
+   `NEXT_PUBLIC_FORM_ENDPOINT` at the same time.
+2. **Socials.** Only TikTok (`@jczdrip`) is confirmed and live. Add Instagram /
+   YouTube to `site.socials` when he sends handles; the component renders the list.
+3. **Photos.** Hi-res work photos beyond the two he sent (`jonathan-portrait`,
+   `jonathan-painting`). Current photography caps hero quality.
+4. **Brand logos.** `BrandMarquee` uses real logo SVGs for Lamborghini + Porsche
    (`public/logos`, from Simple Icons) and text wordmarks for Glasurit 100 Line +
    BASF (no clean SVGs sourced). Add BASF/Glasurit SVGs to `public/logos` and give
    them a `file` in `site.ts` `brands` if desired. Confirm logo use is authorized.
-4. **Confirm claims.** "Million-dollar cars", "first in the PNW on Glasurit 100
+5. **Confirm claims.** "Million-dollar cars", "first in the PNW on Glasurit 100
    Line", and "OEM standard or better" are his own words; keep as-is unless he
    revises. Do not name the shop until he says it is public.
-5. **Map precision.** Embed centered on "Bellevue, WA"; swap to a pin once the
+6. **Map precision.** Embed centered on "Bellevue, WA"; swap to a pin once the
    shop address is public.
 
 ## Weak Spots To Review
@@ -93,7 +97,16 @@ now live in `site.ts`). Still open:
 
 ## Launch
 
-Vercel preview / `*.vercel.app` first. Custom domain later.
+Domain `jczdripp.com` is registered (Porkbun, 2026-07). The code already targets
+it: `SITE_URL` is `https://jczdripp.com` in `layout.tsx`, `sitemap.ts`, and
+`robots.ts`, so metadata, canonicals, OG, sitemap, and JSON-LD resolve as soon as
+DNS lands.
+
+Remaining to go live:
+
+1. Add `jczdripp.com` (and `www`) to the Vercel project, then set the DNS records
+   Vercel shows in Porkbun. Redirect `www` to the apex.
+2. Land the real public email (see blocker above) before announcing.
 
 ## Closeout Checklist (per AGENTS.md)
 

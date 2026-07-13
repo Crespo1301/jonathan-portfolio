@@ -284,13 +284,10 @@ export const site = {
     note: "Serving Bellevue and the greater Seattle area.",
   },
 
-  // Social links. PLACEHOLDERS, easy to find-and-replace. Swap each `url` for
-  // Jonathan's real profile (and update `handle`). Remove any he doesn't use.
+  // Confirmed profiles only. Add Instagram / YouTube here when Jonathan sends them;
+  // the Socials component renders whatever is in this list.
   socials: [
-    { label: "Instagram", handle: "@REPLACE_ME", url: "https://instagram.com/REPLACE_ME" },
-    { label: "Facebook", handle: "Jonathan Crespo", url: "https://facebook.com/REPLACE_ME" },
-    { label: "TikTok", handle: "@REPLACE_ME", url: "https://tiktok.com/@REPLACE_ME" },
-    { label: "YouTube", handle: "Jonathan Crespo", url: "https://youtube.com/@REPLACE_ME" },
+    { label: "TikTok", handle: "@jczdrip", url: "https://tiktok.com/@jczdrip" },
   ],
 };
 
