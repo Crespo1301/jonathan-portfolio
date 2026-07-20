@@ -31,3 +31,7 @@ Get the repo into a clean, reusable portfolio state, gather the brief, and avoid
 - Do not invent Jonathan's career story, metrics, or niche.
 - Treat the current build as an intake-ready shell, not a final identity.
 - If a meaningful design pass happens, update `docs/claude-track-record.md`.
+
+## Visual QA
+
+Use the workspace runner at `/home/cresp3/scripts/visual-check.sh` after any layout, responsive, spacing, animation, or visual-polish change. Start the local dev server, capture mobile and desktop screenshots into `.visual-checks/`, and inspect the rendered pixels before calling the work done. See `VISUAL-QA.md`.

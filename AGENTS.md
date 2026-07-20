@@ -29,3 +29,7 @@ When a meaningful slice ends:
 1. Update `CHANGELOG.md`.
 2. Update `HANDOFF.md`.
 3. If Claude materially shaped the design, update `docs/claude-track-record.md`.
+
+## Visual QA
+
+Use the workspace runner at `/home/cresp3/scripts/visual-check.sh` after any layout, responsive, spacing, animation, or visual-polish change. Start the local dev server, capture mobile and desktop screenshots into `.visual-checks/`, and inspect the rendered pixels before calling the work done. See `VISUAL-QA.md`.
