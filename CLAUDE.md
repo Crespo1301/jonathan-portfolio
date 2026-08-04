@@ -6,12 +6,13 @@ Repo role: Jonathan Crespo personal portfolio client project, scaffolded by CSol
 
 - Jonathan is Carlos's brother and a real client inside the CSolutions system.
 - Hosting and support are fully comped for him.
-- There is no custom domain yet, the site should be prepared for a Vercel preview launch first.
+- Carlos confirmed `https://jczdripp.com` and `https://www.jczdripp.com` both work and are interchangeable; keep code metadata on the apex unless Carlos changes the canonical preference.
 - The site should feel like Jonathan's voice and goals, not Carlos's.
 
 ## Current Mission
 
-Get the repo into a clean, reusable portfolio state, gather the brief, and avoid inventing Jonathan's story before his content arrives.
+Maintain the real automotive portfolio while keeping unapproved biography,
+resume, social, photography, shop-name, and metrics claims clearly pending.
 
 ## Claude Role Here
 
@@ -29,7 +30,11 @@ Get the repo into a clean, reusable portfolio state, gather the brief, and avoid
 ## Working Notes
 
 - Do not invent Jonathan's career story, metrics, or niche.
-- Treat the current build as an intake-ready shell, not a final identity.
+- Treat the current build as a real client portfolio with some content approvals
+  still pending, not as a generic intake shell.
+- Contact delivery uses a same-origin `/api/contact` route backed by Resend.
+  Required production env vars are `RESEND_API_KEY`, `CONTACT_TO`, and
+  `CONTACT_FROM`. Do not expose Resend credentials client-side.
 - If a meaningful design pass happens, update `docs/claude-track-record.md`.
 
 ## Visual QA

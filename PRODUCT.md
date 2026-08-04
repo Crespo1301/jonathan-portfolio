@@ -6,7 +6,9 @@ Jonathan Crespo personal portfolio website.
 
 ## Current Product Goal
 
-Set up a clean, mobile-friendly, Vercel-ready portfolio shell that can support Jonathan's real content once his brief is gathered.
+Maintain a clean, mobile-friendly, Vercel-ready portfolio for Jonathan as an
+automotive paint specialist in Bellevue, Washington, while keeping remaining
+content approvals explicit.
 
 ## Likely Jobs The Site May Need To Do
 
@@ -15,23 +17,26 @@ Set up a clean, mobile-friendly, Vercel-ready portfolio shell that can support J
 - selected work or proof showcase
 - contact and opportunity intake
 
-These are possibilities, not locked decisions yet.
+The automotive portfolio direction is live. Future revisions should still avoid
+inventing facts that Jonathan has not approved.
 
 ## What Is Known
 
 - Jonathan is a real CSolutions client.
 - Hosting and support are fully comped.
-- He has no domain yet.
+- `https://jczdripp.com` and `https://www.jczdripp.com` are connected and interchangeable.
 - The project already exists in the CSolutions client portal.
+- Confirmed public positioning: automotive paint specialist in Bellevue, WA.
+- Confirmed contact inbox: `jczdripp@gmail.com`.
 
 ## What Is Not Known Yet
 
-- primary audience
-- primary call to action
-- final tone and visual direction
-- whether the site should lean more personal, corporate, creative, or sales-focused
-- what work samples or resume details should be public
+- biography or resume changes beyond the current confirmed account
+- social profiles beyond TikTok `@jczdrip`
+- whether a public shop name or precise address should appear
+- whether additional brand logos may be used
 
 ## Product Requirement Right Now
 
-The repo should help gather and organize the brief instead of faking certainty.
+The repo should present confirmed content confidently and label pending approvals
+instead of faking certainty.

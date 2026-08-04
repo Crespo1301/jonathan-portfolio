@@ -50,7 +50,16 @@ photography-led portfolio, not an intake shell.
 - **Maps:** grayscale-filtered Google Maps embed (no API key) of Bellevue on the
   contact page, About page, and home contact finale (`MapEmbed` component).
 - **Routes:** `/`, `/work` (full gallery), `/about`, `/resume` (labelled
-  "Experience"), `/contact`. All content flows from `src/data/site.ts`.
+  "Experience"), `/contact`, `/privacy`, and noindex `/thank-you`. Most public
+  content flows from `src/data/site.ts`.
+- **Contact delivery:** `/api/contact` is a same-origin Next route backed by
+  Resend. It validates JSON, filters a honeypot, rate-limits per IP on a
+  best-effort in-memory bucket, and only redirects to `/thank-you` after Resend
+  accepts the message. Browser CSP stays `connect-src 'self'`; Resend is called
+  server-side only. Required Vercel Production env vars: `RESEND_API_KEY`,
+  `CONTACT_TO` (`jczdripp@gmail.com` expected), and `CONTACT_FROM` (`Jonathan
+  Crespo <jczdripp-inquiries@carloscrespo.info>` expected, on a Resend-verified
+  domain).
 - **Security headers** in `next.config.ts`: CSP (permits the maps embed only),
   `X-Content-Type-Options`, `Referrer-Policy`, `X-Frame-Options`,
   `Permissions-Policy`, HSTS. CSP drops `unsafe-eval` in production.
@@ -63,15 +72,15 @@ the repo. This libheif build lacks the HEVC decoder, so conversion used
 `pillow-heif` in a venv. To regenerate or add images, re-run conversion from the
 zip and re-run the blur generator to refresh `src/data/blur.ts`.
 
-## Pending From Jonathan Before Public Launch
+## Optional Follow-Up From Jonathan
 
 Brief confirmed 2026-06-24 (his story, services, Glasurit 100 Line, timeline are
 now live in `site.ts`). Still open:
 
-1. **Form backend.** `site.contact.email` is live (`jczdripp@gmail.com`), so the
-   form's mailto fallback works and every Email button resolves. Optional upgrade:
-   set `NEXT_PUBLIC_FORM_ENDPOINT` (Formspree/Web3Forms) so the form posts
-   directly instead of opening the visitor's mail client.
+1. **Form backend env.** Confirm Vercel Production has `RESEND_API_KEY`,
+   `CONTACT_TO`, and `CONTACT_FROM`. Direct email links still resolve to
+   `jczdripp@gmail.com`, but opening a mail client should never be described as
+   a delivered message.
 2. **Socials.** Only TikTok (`@jczdrip`) is confirmed and live. Add Instagram /
    YouTube to `site.socials` when he sends handles; the component renders the list.
 3. **Photos.** Hi-res work photos beyond the two he sent (`jonathan-portrait`,
@@ -95,19 +104,19 @@ now live in `site.ts`). Still open:
 
 ## Launch
 
-Domain `jczdripp.com` is registered (Porkbun, 2026-07). The code already targets
-it: `SITE_URL` is `https://jczdripp.com` in `layout.tsx`, `sitemap.ts`, and
-`robots.ts`, so metadata, canonicals, OG, sitemap, and JSON-LD resolve as soon as
-DNS lands.
+Domain `jczdripp.com` is registered (Porkbun, 2026-07). Carlos confirmed on
+2026-08-04 that both `https://jczdripp.com` and `https://www.jczdripp.com` work
+and are interchangeable. The code targets the apex: `SITE_URL` is
+`https://jczdripp.com` in `layout.tsx`, `sitemap.ts`, and `robots.ts`, so
+metadata, canonicals, OG, sitemap, and JSON-LD are aligned with the custom
+domain.
 
-Remaining to go live:
+Resolved launch item:
 
-1. Add `jczdripp.com` (and `www`) to the Vercel project, then point Porkbun's
-   authoritative nameservers at Vercel. Redirect `www` to the apex.
+1. Custom domain connection for `jczdripp.com` / `www.jczdripp.com`.
 
-This is now the only launch blocker. Note it also gates link previews: `og:image`
-resolves against `jczdripp.com`, so shared links render a blank preview until the
-domain answers.
+Remaining launch QA is verification-only: periodically recheck both hostnames and
+check a shared link preview after DNS/cache propagation.
 
 Icon: chrome JCZ roundel (`src/lib/icon-mark.tsx`), confirmed by Jonathan
 2026-07. The `/icon-lab` candidate gallery has been removed.

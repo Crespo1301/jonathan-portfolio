@@ -7,9 +7,10 @@ Jonathan Crespo's personal portfolio website.
 
 ## Who this is for
 
-Jonathan Crespo is Carlos's brother. He is being onboarded as a **client** of
+Jonathan Crespo is Carlos's brother. He is onboarded as a **client** of
 CSolutions (the Portfolio business hub), with a **100% free comp** for hosting
-and support. He has **no domain yet**.
+and support. Carlos confirmed on 2026-08-04 that `https://jczdripp.com` and
+`https://www.jczdripp.com` both work and are interchangeable.
 
 ## What is already done (in the CSolutions / Portfolio Supabase, project `txzpxkepoeaqdmjxoags`)
 
@@ -40,19 +41,15 @@ already skips him (it filters on `stripe_subscription_id is not null`).
 
 ## What to do in this repo (the next conversation)
 
-1. **Scaffold the site.** Next.js App Router on Vercel is the house default (matches
-   the rest of the workspace). Get a clean starter committed and pushed to
-   `origin/main`.
-2. **Apply the shared repo standard** (see `/home/cresp3/CLAUDE.md`): `CLAUDE.md`,
-   `AGENTS.md`, `AI-WORKFLOW.md`, `.env.ai.example`, `.mcp.example.json`, and the
-   `scripts/` helpers (`stitch-doctor.sh`, `stitch-proxy.sh`, `magic-mcp.sh`).
-3. **Get Jonathan's brief + content** before designing: what the portfolio is for
-   (resume site, creative work, sales/personal brand, his email is
-   kingsales92, so likely sales/personal brand), sections, copy, photos, links.
-   Do not invent his content.
-4. **No domain yet.** Plan to launch on a Vercel preview/`*.vercel.app` URL first;
-   wire a custom domain when he buys one. Hosting is free to him (the comp).
-5. **Link back to the portal.** The project already exists in the CSolutions portal,
+1. **Maintain the live portfolio.** The site now presents Jonathan as an
+   automotive paint specialist in Bellevue, WA. Keep pending approvals explicit
+   and do not invent biography, credentials, shop names, metrics, or social links.
+2. **Keep contact delivery configured.** `/api/contact` uses Resend server-side
+   with `RESEND_API_KEY`, `CONTACT_TO`, and `CONTACT_FROM`; direct mailto links
+   are fallback contact methods only.
+3. **Custom domain connected.** Keep Vercel/DNS aligned for `jczdripp.com` and
+   `www.jczdripp.com`; hosting is free to him (the comp).
+4. **Link back to the portal.** The project already exists in the CSolutions portal,
    so once the site is live, update the project row (website_url, launch_date) and
    optionally add it to `Portfolio/src/data/projects.ts` / showcase if Carlos wants
    it featured.

@@ -24,6 +24,11 @@ export default function ContactPage() {
               <AccentBar className="mb-7" />
               <h1 className="display">{site.contact.title}</h1>
               <p className="lead measure mt-6">{site.contact.copy}</p>
+              <p className="mt-5 text-base leading-7 text-muted">
+                The form sends inquiries through a private server-side email
+                route. Direct email links remain available if you prefer to send
+                from your own mail app.
+              </p>
               <div className="mt-10">
                 <ContactForm />
               </div>

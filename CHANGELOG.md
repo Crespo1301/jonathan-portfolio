@@ -2,6 +2,17 @@
 
 ## Unreleased
 
+- replaced the optional public form endpoint / mailto submission behavior with a
+  same-origin `/api/contact` route that validates inquiries and sends them
+  through Resend using private `RESEND_API_KEY`, `CONTACT_TO`, and `CONTACT_FROM`
+  environment variables
+- added `/privacy` and `/thank-you`, updated the contact form language so success
+  is only shown after the delivery provider accepts the message, and documented
+  the name, email, phone, vehicle, and message fields
+- reconciled README, CLAUDE, PRODUCT, HANDOFF, and CODEX-HANDOFF around the live
+  automotive portfolio state, owner-confirmed interchangeable domains, remaining
+  content approvals, and Resend/CSP implications
+
 ## 1.0.0 - 2026-06-20
 
 - scaffolded the repo as a Next.js App Router project

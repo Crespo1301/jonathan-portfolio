@@ -61,7 +61,9 @@ export function SiteFooter() {
         {/* Bottom bar */}
         <div className="mt-16 flex flex-col gap-2 border-t border-steel-line pt-8 text-xs text-chrome sm:flex-row sm:items-center sm:justify-between">
           <p>&copy; {year} Jonathan Crespo. All rights reserved.</p>
-          <p>Automotive paint specialist, Bellevue WA.</p>
+          <Link href="/privacy" className="underline-offset-4 transition-colors hover:text-accent hover:underline">
+            Privacy
+          </Link>
           <p>Built and maintained by CSolutions.</p>
         </div>
       </div>

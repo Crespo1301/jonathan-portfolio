@@ -4,7 +4,7 @@ const SITE_URL = "https://jczdripp.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const routes = ["", "/work", "/about", "/resume", "/contact"];
+  const routes = ["", "/work", "/about", "/resume", "/contact", "/privacy"];
   return routes.map((route) => ({
     url: `${SITE_URL}${route}`,
     lastModified: now,
