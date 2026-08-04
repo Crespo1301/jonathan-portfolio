@@ -1,5 +1,6 @@
 "use client";
 
+import { animate } from "animejs";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
 type RevealProps = {
@@ -19,7 +20,28 @@ export function Reveal({ children, className, delay = 0, dir = "up" }: RevealPro
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          const t = window.setTimeout(() => setShown(true), delay);
+          const t = window.setTimeout(() => {
+            setShown(true);
+
+            if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+              const translate =
+                dir === "left"
+                  ? ["-28px", "0px"]
+                  : dir === "right"
+                    ? ["28px", "0px"]
+                    : dir === "up"
+                      ? ["22px", "0px"]
+                      : ["0px", "0px"];
+
+              animate(node, {
+                opacity: [0, 1],
+                translateX: dir === "left" || dir === "right" ? translate : ["0px", "0px"],
+                translateY: dir === "up" ? translate : ["0px", "0px"],
+                duration: 720,
+                easing: "easeOutCubic",
+              });
+            }
+          }, delay);
           observer.disconnect();
           node.dataset.timer = String(t);
         }
@@ -28,7 +50,7 @@ export function Reveal({ children, className, delay = 0, dir = "up" }: RevealPro
     );
     observer.observe(node);
     return () => observer.disconnect();
-  }, [delay]);
+  }, [delay, dir]);
 
   return (
     <div

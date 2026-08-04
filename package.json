@@ -14,6 +14,7 @@
     "magic": "bash ./scripts/magic-mcp.sh"
   },
   "dependencies": {
+    "animejs": "^4.5.0",
     "next": "16.2.12",
     "react": "19.2.4",
     "react-dom": "19.2.4"
@@ -26,6 +27,7 @@
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
+    "shadcn": "^4.16.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   },
