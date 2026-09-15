@@ -53,7 +53,8 @@ photography-led portfolio, not an intake shell.
   "Experience"), `/contact`, `/privacy`, and noindex `/thank-you`. Most public
   content flows from `src/data/site.ts`.
 - **Contact delivery:** `/api/contact` is a same-origin Next route backed by
-  Resend. It validates JSON, filters a honeypot, rate-limits per IP on a
+  Resend. It accepts JSON or URL-encoded browser submissions, enforces the
+  received-body limit, filters a honeypot, rate-limits per IP on a
   best-effort in-memory bucket, and only redirects to `/thank-you` after Resend
   accepts the message. Browser CSP stays `connect-src 'self'`; Resend is called
   server-side only. Required Vercel Production env vars: `RESEND_API_KEY`,

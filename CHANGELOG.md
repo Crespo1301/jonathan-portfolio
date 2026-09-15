@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- hardened `/api/contact` with an explicit supported content-type policy and an actual received-body byte limit while preserving the existing validation, honeypot, rate-limit, and Resend flow
 - replaced the optional public form endpoint / mailto submission behavior with a
   same-origin `/api/contact` route that validates inquiries and sends them
   through Resend using private `RESEND_API_KEY`, `CONTACT_TO`, and `CONTACT_FROM`

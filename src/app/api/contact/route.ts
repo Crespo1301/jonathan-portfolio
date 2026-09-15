@@ -47,6 +47,10 @@ function json(status: number, message: string) {
   return NextResponse.json({ ok: false, message }, { status });
 }
 
+function mediaType(value: string) {
+  return value.split(";", 1)[0].trim().toLowerCase();
+}
+
 function clientKey(request: NextRequest) {
   const forwardedFor = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
   const realIp = request.headers.get("x-real-ip")?.trim();
@@ -107,13 +111,10 @@ function validate(payload: ContactPayload) {
   };
 }
 
-async function parsePayload(request: NextRequest): Promise<ContactPayload> {
-  const rawBody = await request.text();
+function parsePayload(rawBody: string, contentType: string): ContactPayload {
   if (!rawBody.trim()) return {};
 
-  const contentType = request.headers.get("content-type") || "";
-
-  if (contentType.includes("application/x-www-form-urlencoded")) {
+  if (contentType === "application/x-www-form-urlencoded") {
     return Object.fromEntries(new URLSearchParams(rawBody).entries());
   }
 
@@ -130,6 +131,11 @@ export async function POST(request: NextRequest) {
     return json(413, "That message is a little too long. Please shorten it and try again.");
   }
 
+  const contentType = mediaType(request.headers.get("content-type") ?? "");
+  if (!["application/json", "application/x-www-form-urlencoded"].includes(contentType)) {
+    return json(415, "Please submit this form from the website and try again.");
+  }
+
   if (isRateLimited(clientKey(request))) {
     return json(429, "Too many attempts came through at once. Please wait a few minutes and try again.");
   }
@@ -137,7 +143,12 @@ export async function POST(request: NextRequest) {
   let payload: ContactPayload;
 
   try {
-    payload = await parsePayload(request);
+    const rawBody = await request.text();
+    if (new TextEncoder().encode(rawBody).byteLength > MAX_BODY_BYTES) {
+      return json(413, "That message is a little too long. Please shorten it and try again.");
+    }
+
+    payload = parsePayload(rawBody, contentType);
   } catch (error) {
     console.error("contact.parse_failed", error);
     return json(400, "Please check the form and try again.");
